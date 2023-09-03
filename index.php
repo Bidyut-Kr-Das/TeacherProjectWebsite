@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- -----------------------------------navbar start ------------------------------------------------------>
+    <nav class="flex justify-between h-16 items-center bg-transparent absolute z-10 top-0 left-0 w-full px-10 md:px-8 lg:px-20 shadow-sm">
+        <!-- logoArea -->
+        <div class="h-12 w-20">
+            <img class="h-12 w-20" src="Img/Logo/Mosaic Logo.png" alt="" />
+        </div>
+        <!-- tabArea -->
+        <div id="navTabs" class="flex text-center bg-blue-400 md:bg-transparent z-0 md:z-10 absolute top-16 duration-500 left-[-100vw] md:static w-screen md:w-auto flex-col md:flex-row sm:gap-[2vw] md:gap-[4vw] gap-[8vw] py-[2vw] md:py-0 font-poppins font-medium text-base select-none">
+            <a href="#">
+                <div class="hover:underline underline-offset-4 leading-[3rem]">
+                    Home
+                </div>
+            </a>
+            <a href="#">
+                <div class="hover:underline underline-offset-4 leading-[3rem]">
+                    Teachers
+                </div>
+            </a>
+            <a href="#">
+                <div class="hover:underline underline-offset-4 leading-[3rem]">
+                    About us
+                </div>
+            </a>
+            <a href="#">
+                <div class="hover:underline underline-offset-4 leading-[3rem]">
+                    FAQs
+                </div>
+            </a>
+            <a href="#">
+                <div class="bg-[#3461FF] h-12 w-32 leading-[3rem] text-white rounded-full">
+                    Book a call
+                </div>
+            </a>
+        </div>
+        <div class="md:hidden">
+            <i class="fa-solid fa-bars text-lg cursor-pointer" onclick="menuToggleBtn(this)"></i>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <!-- this is the starting of the main section  -->
+    <!-- starting of the first section  -->
+    <main class="bg-[#f1f1f1] w-auto h-auto mt-16 flex justify-evenly">
+        <!-- right side div area -->
+        <section class=" pl-20 w-1/2 py-28 flex flex-col gap-8">
+            <!-- main heading area with bold letter and font 2xl -->
+            <heading class="font-semibold font-sans text-8xl w-auto text-left select-none">Match, </br>Learn, And </br>Soar To </br>Success
+            </heading>
+            <!-------------------------- sub heading part -------------------->
+            <subHeading class="text-xl text-black/50 select-none">
+                "Find your perfect teacher today"
+            </subHeading>
+            <!-------------------- lets talk area --------------------------->
+            <contactArea>
+                <form action="" class="flex gap-4">
+                    <input type="text" name="" id="" placeholder="Enter your email" class="h-12 w-1/2 rounded-full px-4  outline-none border-black/30 border-[1px] placeholder:text-black/50">
+                    <input type="submit" class="bg-[#3461FF] h-12 w-32 rounded-full text-white cursor-pointer" value="Lets Talk">
+                </form>
+            </contactArea>
+        </section>
+        <section class="w-1/2 relative">
+            <img src="Img/first-page-photos/Combined.png" class=" my-10 h-4/5 w-4/5" alt="">
+        </section>
+    </main>
+    <!-- this is the end of first section hero -->
+
+    <!-- starting of the teacher section  -->
+    <section class="relative py-20">
+        <heading class="block font-semibold text-5xl w-[90%] h-auto mx-auto">
+            Our Teachers
+        </heading>
+    </section>
+</body>
+<script src="../js/script.js" defer></script>
+
+</html>
