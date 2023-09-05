@@ -53,3 +53,15 @@ rightArrowBtn.addEventListener("click", () => {
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop);
+
+const bannerWrapper = document.querySelector(".bannerCarousel");
+
+let counter = 0;
+const scroll = () => {
+  if (counter === 3) counter = 0;
+  // console.log(counter);
+  bannerWrapper.style.left = `-${counter * 100}vw`;
+  counter++;
+};
+
+const interval = setInterval(scroll, 3000);

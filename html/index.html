@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
+    <!-- <link
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"
       rel="stylesheet"
-    />
+    /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -67,134 +67,23 @@
       </div>
     </nav>
     <!-- navbar end -->
+
     <!-- this is the starting of the main section  -->
+
     <!-- this is the starting of  carousel section -->
-    <main class="mt-16">
-      <div id="default-carousel" class="relative w-full" data-carousel="slide">
-        <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-[90vh]">
-          <!-- Item 1 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img
-              src="../Img/banner/banner 1.jpg"
-              class="absolute h-full block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
-          </div>
-          <!-- Item 2 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img
-              src="../Img/banner/banner 2.jpg"
-              class="absolute h-full block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
-          </div>
-          <!-- Item 3 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img
-              src="../Img/banner/banner 3.jpg"
-              class="absolute h-full block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
-            />
-          </div>
-          <!-- Item 4 -->
-  
-          <!-- Item 5 -->
+    <main class="h-screen mt-16 w-full relative overflow-x-hidden">
+      <wrapper class="bannerCarousel duration-500 flex absolute top-0 left-0 overflow-hidden">
+        <div class="h-screen w-screen">
+          <img class="w-full h-full" src="../Img/banner/banner 1.jpg" alt="">
         </div>
-        <!-- Slider indicators -->
-        <div
-          class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"
-        >
-          <button
-            type="button"
-            class="w-3 h-3 rounded-full"
-            aria-current="true"
-            aria-label="Slide 1"
-            data-carousel-slide-to="0"
-          ></button>
-          <button
-            type="button"
-            class="w-3 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 2"
-            data-carousel-slide-to="1"
-          ></button>
-          <button
-            type="button"
-            class="w-3 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 3"
-            data-carousel-slide-to="2"
-          ></button>
-          <button
-            type="button"
-            class="w-3 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 4"
-            data-carousel-slide-to="3"
-          ></button>
-          <button
-            type="button"
-            class="w-3 h-3 rounded-full"
-            aria-current="false"
-            aria-label="Slide 5"
-            data-carousel-slide-to="4"
-          ></button>
+        <div class="h-screen w-screen">
+          <img class="w-full h-full" src="../Img/banner/banner 2.jpg" alt="">
         </div>
-        <!-- Slider controls -->
-        <button
-          type="button"
-          class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-          data-carousel-prev
-        >
-          <span
-            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
-          >
-            <svg
-              class="w-4 h-4 text-white dark:text-gray-800"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 1 1 5l4 4"
-              />
-            </svg>
-            <span class="sr-only">Previous</span>
-          </span>
-        </button>
-        <button
-          type="button"
-          class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-          data-carousel-next
-        >
-          <span
-            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
-          >
-            <svg
-              class="w-4 h-4 text-white dark:text-gray-800"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 9 4-4-4-4"
-              />
-            </svg>
-            <span class="sr-only">Next</span>
-          </span>
-        </button>
-      </div>
+        <div class="h-screen w-screen">
+          <img class="w-full h-full" src="../Img/banner/banner 3.jpg" alt="">
+        </div>
+      </wrapper>
+
     </main>
     <!-- this is the ending of  carousel section -->
     <!-- starting of the first section  -->
@@ -236,16 +125,22 @@
       <!-- this section is for teacher cards area -->
       <section class="carousel-cu w-[90%] px-[5%] mx-auto grid grid-flow-col overflow-x-hidden h-full py-8  gap-8">
         <!-- card section -->
-        <section class=" relative w-96 h-auto  rounded-2xl shadow-lg">
-          <img class="w-full h-32"src="../Img/Teacher card photos/banner1.png" alt="" draggable="false">
+        <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
           <!-- profile image area with absolute property -->
-          <div class="absolute top-[5.5rem] left-4 h-20 w-20 p-1 bg-white rounded-full overflow-hidden"><img  class=" w-[4.5rem] h-[4.5rem]" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+          <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+            <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+            <span>
+              <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+              <!------------------- subject Names -------------------->
+              <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+              </h1>
+            </span>
           </div>
           <!-- Teacher Name -->
-          <heading class=" block mt-12 px-4 font-semibold text-3xl">Lisa Daniel</heading>
-          <!------------------- subject Names -------------------------->
-          <h1 class="px-4 text-black/60 mt-2">English, Mathematics</h1>
-          <!------------------ Tags area ---------------------------->
+          
+          <!--------------- Tags area ---------------------------->
           <div class="px-4 flex gap-2 mt-3">
             <!-- tag 1 is for experience -->
             <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
@@ -256,73 +151,95 @@
 
           </div>
           <!---------------------- connect button --------------------->
-          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 my-8 rounded-full text-white text-lg ">Connect</button></a>
+          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
         </section>   
        <!-- ------------------ card 2 ------------------ -->
-        <section class=" relative w-96 h-auto  rounded-2xl shadow-lg">
-          <img class="w-full h-32"src="../Img/Teacher card photos/banner2.png" alt="" draggable="false">
+       <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
+        <!-- profile image area with absolute property -->
+        <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+          <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+          <span>
+            <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+            <!------------------- subject Names -------------------->
+            <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+            </h1>
+          </span>
+        </div>
+        <!-- Teacher Name -->
+        
+        <!--------------- Tags area ---------------------------->
+        <div class="px-4 flex gap-2 mt-3">
+          <!-- tag 1 is for experience -->
+          <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
+          <!-- tag 2 is for class -->
+          <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
+          <!-- tag 3 is for degree -->
+          <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
+
+        </div>
+        <!---------------------- connect button --------------------->
+        <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+      </section>
+        <!-- ---------------------------card 3 --------------------------->
+        <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
           <!-- profile image area with absolute property -->
-          <div class="absolute top-[5.5rem] left-4 h-20 w-20 p-1 bg-white rounded-full overflow-hidden"><img  class=" w-[4.5rem] h-[4.5rem]" src="../Img/Teacher card photos/user.png" alt="" draggable="false"></div>
+          <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+            <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+            <span>
+              <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+              <!------------------- subject Names -------------------->
+              <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+              </h1>
+            </span>
+          </div>
           <!-- Teacher Name -->
-          <heading class=" block mt-12 px-4 font-semibold text-3xl">Mike Tyson</heading>
-          <!------------------- subject Names -------------------------->
-          <h1 class="px-4 text-black/60 mt-2">Science</h1>
-          <!------------------ Tags area ---------------------------->
+          
+          <!--------------- Tags area ---------------------------->
           <div class="px-4 flex gap-2 mt-3">
             <!-- tag 1 is for experience -->
             <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
             <!-- tag 2 is for class -->
-            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class X</tag>
-            <!-- tag 3 is for degree -->
-            <tag class="border-black/70 border-2 px-2 rounded-full font-medium  text-sm text-black/70">B.Ed</tag>
-
-          </div>
-          <!---------------------- connect button --------------------->
-          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 my-8 rounded-full text-white text-lg ">Connect</button></a>
-        </section>   
-        <!-- ---------------------------card 3 --------------------------->
-        <section class=" relative w-96 h-auto  rounded-2xl shadow-lg">
-          <img class="w-full h-32"src="../Img/Teacher card photos/banner3.png" alt="" draggable="false">
-          <!-- profile image area with absolute property -->
-          <div class="absolute top-[5.5rem] left-4 h-20 w-20 p-1 bg-white rounded-full overflow-hidden"><img  class=" w-[4.5rem] h-[4.5rem]" src="../Img/Teacher card photos/user.png" alt="" draggable="false"></div>
-          <!-- Teacher Name -->
-          <heading class="cursor-grab block mt-12 px-4 font-semibold text-3xl">Lisa Daniel</heading>
-          <!------------------- subject Names -------------------------->
-          <h1 class="px-4 text-black/60 mt-2">All subject</h1>
-          <!------------------ Tags area ---------------------------->
-          <div class="px-4 flex gap-2 mt-3">
-            <!-- tag 1 is for experience -->
-            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">3 years</tag>
-            <!-- tag 2 is for class -->
-            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class V</tag>
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
             <!-- tag 3 is for degree -->
             <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
 
           </div>
           <!---------------------- connect button --------------------->
-          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 my-8 rounded-full text-white text-lg ">Connect</button></a>
-        </section>   
-        <section class=" relative w-96 h-auto  rounded-2xl shadow-lg">
-          <img class="w-full h-32"src="../Img/Teacher card photos/banner3.png" alt="" draggable="false">
+          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+        </section>
+        <!------------------------ card 4 ------------------->
+        <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
           <!-- profile image area with absolute property -->
-          <div class="absolute top-[5.5rem] left-4 h-20 w-20 p-1 bg-white rounded-full overflow-hidden"><img  class=" w-[4.5rem] h-[4.5rem]" src="../Img/Teacher card photos/user.png" alt="" draggable="false"></div>
+          <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+            <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+            <span>
+              <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+              <!------------------- subject Names -------------------->
+              <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+              </h1>
+            </span>
+          </div>
           <!-- Teacher Name -->
-          <heading class=" block mt-12 px-4 font-semibold text-3xl">Lisa Daniel</heading>
-          <!------------------- subject Names -------------------------->
-          <h1 class="px-4 text-black/60 mt-2">All subject</h1>
-          <!------------------ Tags area ---------------------------->
+          
+          <!--------------- Tags area ---------------------------->
           <div class="px-4 flex gap-2 mt-3">
             <!-- tag 1 is for experience -->
-            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">3 years</tag>
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
             <!-- tag 2 is for class -->
-            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class V</tag>
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
             <!-- tag 3 is for degree -->
             <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
 
           </div>
           <!---------------------- connect button --------------------->
-          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 my-8 rounded-full text-white text-lg ">Connect</button></a>
-        </section>   
+          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+        </section>
       </section>
     </main>
     <!-- end of teacher card section  -->
@@ -484,6 +401,7 @@
     <!-- starting of contact us section -->
     <main class="relative bg-[#f1f1f1] h-auto p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
       <section class="bg-white h-[40rem] w-[90%] rounded-2xl p-2 flex justify-between gap-2 shadow-lg z-10">
+
         <!-- This is left section of contact area -->
         <div class="relative bg-black rounded-2xl h-full w-2/5 pl-8 pt-12 overflow-hidden">
           <heading class="text-4xl font-semibold text-white">Contact Information</heading>
@@ -511,21 +429,21 @@
             <section class="flex justify-evenly gap-12">
               <span class="w-1/2 flex flex-col gap-2">
                 <label for="FName">First Name</label>
-                <input type="text" id="FName" class="border-b-2 border-black/50 !outline-none w-full text-black/50">
+                <input type="text" id="FName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50">
             </span>
               <span class="w-1/2 flex flex-col gap-2">
                 <label for="LName">Last Name</label>
-                <input type="text" id="LName" class="border-b-2 border-black/50 !outline-none w-full text-black/50">
+                <input type="text" id="LName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50">
             </span>
             </section>
             <section class="flex justify-evenly gap-12">
               <span class="w-1/2 flex flex-col gap-2">
                 <label for="FName">Email</label>
-                <input type="text" id="FName" class="border-b-2 border-black/50 !outline-none w-full text-black/50">
+                <input type="text" id="FName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50">
             </span>
               <span class="w-1/2 flex flex-col gap-2">
                 <label for="LName">Phone Number</label>
-                <input type="text" id="LName" class="border-b-2 border-black/50 outline-none w-full text-black/50">
+                <input type="text" id="LName" class="border-b-2 border-t-0 border-x-0 border-black/50 outline-none w-full text-black/50">
             </span>
             </section>
             <section>
@@ -599,7 +517,8 @@
         <span>Privacy Policy</span>
       </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script> -->
   </body>
+  
   <script src="../js/script.js" defer></script>
 </html>
