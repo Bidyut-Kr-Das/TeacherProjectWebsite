@@ -12,3 +12,56 @@ function menuToggleBtn(e) {
     navTabs.classList.add("left-[-100vw]");
   }
 }
+
+const carousel = document.querySelector(".carousel-cu");
+const leftArrowBtn = document.querySelector(".leftSwipeArrow");
+const rightArrowBtn = document.querySelector(".rightSwipeArrow");
+
+let isDragging = false,
+  startX,
+  startScrollLeft;
+
+const dragStart = (e) => {
+  isDragging = true;
+  startX = e.pageX;
+  startScrollLeft = carousel.scrollLeft;
+  carousel.classList.add("select-none");
+  carousel.classList.add("cursor-grab");
+};
+const dragStop = () => {
+  isDragging = false;
+  carousel.classList.remove("select-none");
+  carousel.classList.remove("cursor-grab");
+};
+
+const dragging = (e) => {
+  if (!isDragging) return;
+  carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+  // console.log(carousel.scrollLeft);
+};
+
+//left click will reduce the scroll position of the scroll causing the slider to swipe left.
+leftArrowBtn.addEventListener("click", () => {
+  carousel.scrollLeft -= 400;
+});
+
+//right click will increase the scroll position of the scroll causing the slider to swipe right.
+rightArrowBtn.addEventListener("click", () => {
+  carousel.scrollLeft += 400;
+});
+
+carousel.addEventListener("mousedown", dragStart);
+carousel.addEventListener("mousemove", dragging);
+document.addEventListener("mouseup", dragStop);
+
+const bannerWrapper = document.querySelector(".bannerCarousel");
+
+let counter = 0;
+const scroll = () => {
+  if (counter === 3) counter = 0;
+  // console.log(counter);
+  bannerWrapper.style.left = `-${counter * 100}vw`;
+  counter++;
+};
+
+const interval = setInterval(scroll, 3000);
