@@ -67,7 +67,7 @@ const scroll = () => {
 //uncomment the below line to activate the carousel of banners
 // const interval = setInterval(scroll, 3000);
 
-// toast pop up function
+//todo toast pop up function
 const popUp = (messageToast) => {
   console.log(messageToast);
   const x = document.querySelector("#snackbar");
@@ -105,6 +105,12 @@ $(document).ready(() => {
       },
       success: (res) => {
         popUp(res);
+        $("#FName").val("");
+        $("#LName").val("");
+        $("#email").val("");
+        $("#Pnumber").val("");
+        // $("input[name='subjectContact']:checked").val();
+        $("#textBox").val("");
       },
     });
   });
