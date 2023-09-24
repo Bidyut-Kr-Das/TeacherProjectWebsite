@@ -1,0 +1,116 @@
+<!-- card section -->
+        <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
+          <!-- profile image area with absolute property -->
+          <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+            <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+            <span>
+              <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+              <!------------------- subject Names -------------------->
+              <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+              </h1>
+            </span>
+          </div>
+          <!-- Teacher Name -->
+          
+          <!--------------- Tags area ---------------------------->
+          <div class="px-4 flex gap-2 mt-3">
+            <!-- tag 1 is for experience -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
+            <!-- tag 2 is for class -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
+            <!-- tag 3 is for degree -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
+
+          </div>
+          <!---------------------- connect button --------------------->
+          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+        </section>   
+       <!-- ------------------ card 2 ------------------ -->
+       <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
+        <!-- profile image area with absolute property -->
+        <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+          <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+          <span>
+            <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+            <!------------------- subject Names -------------------->
+            <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+            </h1>
+          </span>
+        </div>
+        <!-- Teacher Name -->
+        
+        <!--------------- Tags area ---------------------------->
+        <div class="px-4 flex gap-2 mt-3">
+          <!-- tag 1 is for experience -->
+          <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
+          <!-- tag 2 is for class -->
+          <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
+          <!-- tag 3 is for degree -->
+          <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
+
+        </div>
+        <!---------------------- connect button --------------------->
+        <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+      </section>
+        <!-- ---------------------card 3 ---------------------- ----->
+        <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
+          <!-- profile image area with absolute property -->
+          <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+            <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+            <span>
+              <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+              <!------------------- subject Names -------------------->
+              <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+              </h1>
+            </span>
+          </div>
+          <!-- Teacher Name -->
+          
+          <!--------------- Tags area ---------------------------->
+          <div class="px-4 flex gap-2 mt-3">
+            <!-- tag 1 is for experience -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
+            <!-- tag 2 is for class -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
+            <!-- tag 3 is for degree -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
+
+          </div>
+          <!---------------------- connect button --------------------->
+          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+        </section>
+        <!------------------------ card 4 ------------------->
+        <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+          
+          <!-- profile image area with absolute property -->
+          <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
+            <img  class=" w-[4.5rem] h-[4.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="" draggable="false">
+            <span>
+              <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+              <!------------------- subject Names -------------------->
+              <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+
+              </h1>
+            </span>
+          </div>
+          <!-- Teacher Name -->
+          
+          <!--------------- Tags area ---------------------------->
+          <div class="px-4 flex gap-2 mt-3">
+            <!-- tag 1 is for experience -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
+            <!-- tag 2 is for class -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
+            <!-- tag 3 is for degree -->
+            <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
+
+          </div>
+          <!---------------------- connect button --------------------->
+          <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+        </section>

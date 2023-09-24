@@ -60,8 +60,52 @@ let counter = 0;
 const scroll = () => {
   if (counter === 3) counter = 0;
   // console.log(counter);
+  /*template literal uses backtick */
   bannerWrapper.style.left = `-${counter * 100}vw`;
   counter++;
 };
+//uncomment the below line to activate the carousel of banners
+// const interval = setInterval(scroll, 3000);
 
-const interval = setInterval(scroll, 3000);
+// toast pop up function
+const popUp = (messageToast) => {
+  console.log(messageToast);
+  const x = document.querySelector("#snackbar");
+  x.innerHTML = messageToast;
+  x.classList.add("show");
+  x.classList.remove("hidden");
+  setTimeout(() => {
+    x.classList.remove("show");
+    x.classList.add("hidden");
+  }, 3000);
+};
+
+//ajax php calling
+$(document).ready(() => {
+  //contact us form
+  $("#contact-form-submit-btn").on("click", (e) => {
+    e.preventDefault();
+    let Fnameget = $("#FName").val();
+    let Lnameget = $("#LName").val();
+    let emailget = $("#email").val();
+    let Pnumberget = $("#Pnumber").val();
+    let subjectget = $("input[name='subjectContact']:checked").val();
+    let messageget = $("#textBox").val();
+
+    $.ajax({
+      url: "functions/contactSubmission.php",
+      type: "POST",
+      data: {
+        FName: Fnameget,
+        LName: Lnameget,
+        email: emailget,
+        phoneNumber: Pnumberget,
+        subject: subjectget,
+        message: messageget,
+      },
+      success: (res) => {
+        popUp(res);
+      },
+    });
+  });
+});

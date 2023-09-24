@@ -1,0 +1,37 @@
+<nav class="flex justify-between h-16 items-center bg-white fixed z-30 top-0 left-0 w-full px-10 md:px-8 lg:px-20 shadow-sm">
+  <!-- logoArea -->
+  <div class="h-12 w-20">
+    <img class="h-12 w-20" src="Img/Logo/Mosaic Logo.png" alt="" />
+  </div>
+  <!-- tabArea -->
+  <div id="navTabs" class="flex text-center white md:bg-transparent z-0 md:z-10 absolute top-16 duration-500 left-[-100vw] md:static w-72 h-screen md:h-auto bg-white md:w-auto flex-col md:flex-row md:gap-[4vw] gap-[8vw] py-[2vw] md:py-0 font-poppins font-medium text-base select-none shadow-2xl md:shadow-none">
+    <a href="#">
+      <div class="hover:underline underline-offset-4 leading-[3rem]">
+        Home
+      </div>
+    </a>
+    <a href="#">
+      <div class="hover:underline underline-offset-4 leading-[3rem]">
+        Teachers
+      </div>
+    </a>
+    <a href="#">
+      <div class="hover:underline underline-offset-4 leading-[3rem]">
+        About us
+      </div>
+    </a>
+    <a href="#">
+      <div class="hover:underline underline-offset-4 leading-[3rem]">
+        FAQs
+      </div>
+    </a>
+    <a class="mx-auto md:mx-0" href="#">
+      <div class="bg-[#3461FF] h-12 w-32 leading-[3rem] text-white rounded-full">
+        Book a call
+      </div>
+    </a>
+  </div>
+  <div class="md:hidden">
+    <i class="fa-solid fa-bars text-lg cursor-pointer" onclick="menuToggleBtn(this)"></i>
+  </div>
+</nav>
