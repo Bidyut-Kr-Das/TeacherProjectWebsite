@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <!-- navv -->
+        <nav
+      class="flex justify-between h-16 items-center bg-white fixed z-30 top-0 left-0 w-full px-10 md:px-8 lg:px-20 shadow-sm"
+    >
+      <!-- logoArea -->
+      <div class="h-12 w-20">
+        <img class="h-12 w-20" src="../Img/Logo/Mosaic Logo.png" alt="" />
+      </div>
+      <!-- tabArea -->
+      <div
+        id="navTabs"
+        class="flex text-center white md:bg-transparent z-0 md:z-10 absolute top-16 duration-500 left-[-100vw] md:static w-72 h-screen md:h-auto bg-white md:w-auto flex-col md:flex-row md:gap-[4vw] gap-[8vw] py-[2vw] md:py-0 font-poppins font-medium text-base select-none shadow-2xl md:shadow-none"
+      >
+        <a href="#"
+          ><div class="hover:underline underline-offset-4 leading-[3rem]">
+            Home
+          </div></a
+        >
+        <a href="#"
+          ><div class="hover:underline underline-offset-4 leading-[3rem]">
+            Teachers
+          </div></a
+        >
+        <a href="#"
+          ><div class="hover:underline underline-offset-4 leading-[3rem]">
+            About us
+          </div></a
+        >
+        <a href="#"
+          ><div class="hover:underline underline-offset-4 leading-[3rem]">
+            FAQs
+          </div></a
+        >
+        <a class="mx-auto md:mx-0" href="#"
+          ><div
+            class="bg-[#3461FF] h-12 w-32 leading-[3rem] text-white rounded-full"
+          >
+            Book a call
+          </div></a
+        >
+      </div>
+      <div class="md:hidden">
+        <i
+          class="fa-solid fa-bars text-lg cursor-pointer"
+          onclick="menuToggleBtn(this)"
+        ></i>
+      </div>
+    </nav>
+        <!-- navv -->
+        <profile class=" flex items-center justify-center">
+            <!-- main div -->
+            <div class="bg-[#F1F1F1] h-screen w-screen mt-[4.1rem] flex flex-row justify-center pt-12">
+                <!-- left part -->
+                <div class=" h-[35rem] w-[30rem] bg-red-400">
+                    <div class="flex justify-center text-[#6C6C6C] font-sans font-medium tracking-wide text-xl">Profile</div>
+                    <!-- img part aita -->
+                    <div class="flex justify-center mt-4">
+                        <div class="h-28 w-28 rounded-full bg-[#6C6C6C] flex justify-center items-center">
+                            <img class="h-[6.5rem] w-[6.5rem] rounded-full" src="../Img/Teacher card photos/user.png" alt="">
+                        </div>
+                    </div>
+                    <!-- img part aita -->
+                    <!-- name and work of Teacher -->
+                    <div class="flex justify-center items-center mt-4 flex-col"> 
+                        <div class="text-black font-sans font-bold tracking-wide text-xl ">Swarnadip</div>
+                        <div class="text-[#6C6C6C] font-sans font-light tracking-wide text-xl "> WEB Dev</div>
+                    </div>
+                    <!-- name and work of Teacher -->
+                    <!-- rest of the information -->
+                    <div class=" flex justify-evenly mt-">
+                            <div class=" h-[6.5rem] w-[8rem] flex justify-center items-center flex-col ">
+                                <div class="text-black font-sans font-light tracking-wide text-2xl">21</div>
+                                <div class="text-[#6C6C6C] font-sans font-extralight text-lg">
+                                    Students
+                                </div>
+                            </div>
+                            <img src="../Img/Rectangle 3.png" alt="">
+                            <div class=" h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
+                                <div class="text-black font-sans font-light tracking-wide text-2xl">4+</div>
+                                <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4">
+                                    Years of experience 
+                                </div>
+                            </div>
+                            <img src="../Img/Rectangle 3.png" alt="">
+                            <div class=" h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
+                                <div class="text-black font-sans font-light tracking-wide text-2xl">B.Ed</div>
+                            </div>
+                    </div>
+                    <!-- rest of the information -->
+                    <!-- contact button and location -->
+                    <div class="flex justify-center items-center mt-8  flex-col">
+                        <div class=" h-10 w-[13rem] bg-[#3461FF] flex justify-center items-center rounded-xl"> 
+                            <div class=" text-white font-sans font-light tracking-wide text-lg capitalize">contact</div>
+                        </div>
+                        <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4  capitalize mt-2">India , west bengal</div>
+                    </div>
+                    <!-- contact button and location -->
+                </div>
+                <!-- left part -->
+                <img src="../Img/Rectangle 14.png" class="mx-2 h-[45rem]" alt="">
+                <!-- right part -->
+                <div class=" h-[35rem] w-[40rem] bg-green-300 flex flex-col">
+                    <div class=" ml-[2.6rem] uppercase leading-6 font-semibold text-sm mt-8">Basic info</div>
+                    <img class="mt-7 mx-[2.6rem]" src="../Img/Rectangle 21.png" alt="">
+                    <div class="flex flex-row justify-evenly gap-[3rem] mt-8">
+                        <div class="capitalize flex flex-col " >
+                            <label class="text-black font-sans font-extralight text-sm capitalize leading-4 tracking-tight" for="">First name</label>
+                            <input class=" border-2 outline-none rounded-md bordor-[#E5E5E5] mt-3 w-[14.5rem]" disabled type="text">
+                        </div>
+                        <div class="capitalize flex flex-col " >
+                            <label class="text-black font-sans font-extralight text-sm capitalize leading-4 tracking-tight" for="">last name</label>
+                            <input class=" border-2 outline-none rounded-md bordor-[#E5E5E5] mt-3 w-[14.5rem]" disabled type="text">
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                            <div class=" ml-[2.6rem] capitalize flex flex-col " >
+                                <label class="text-black font-sans font-extralight text-sm capitalize leading-4 tracking-tight mt-6" for="">qualifications</label>
+                                <input class=" border-2 outline-none rounded-md bordor-[#E5E5E5] mt-3 w-[34.8rem]" disabled type="text">
+                            </div>
+                            <div class=" ml-[2.6rem] capitalize flex flex-col " >
+                                <label class="text-black font-sans font-extralight text-sm capitalize leading-4 tracking-tight mt-6" for="">Email</label>
+                                <input class=" border-2 outline-none rounded-md bordor-[#E5E5E5] mt-3 w-[34.8rem]" disabled type="text">
+                            </div>
+                    </div>
+                    <div class=" ml-[2.6rem] uppercase leading-6 font-semibold text-sm mt-8">About me</div>
+                    <img class="mt-7 mx-[2.6rem]" src="../Img/Rectangle 21.png" alt="">
+                    <input class="ml-[2.6rem] border-2 outline-none rounded-md bordor-[#E5E5E5] mt-[2.5rem] h-[4rem] mx-[2.6rem]" disabled type="text">
+                </div>
+                <!-- right part ENDD-->
+
+                <!-- <img src="../Img/Line 11.png" alt=""> -->
+            </div>
+            <!-- main div -->
+        </profile>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
