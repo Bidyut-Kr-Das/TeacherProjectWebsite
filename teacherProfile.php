@@ -1,0 +1,261 @@
+<?php
+include("header.php");
+include("nav.php");
+
+?>
+
+<profile class="bg-[#F1F1F1] relative overflow-x-hidden">
+    <!-- main div -->
+    <div class="h-auto w-full mt-[4.1rem] flex flex-col gap-12 lg:gap-0 lg:flex-row justify-center pt-12 border-b-2 border-black/30 py-16">
+        <!-- h-[35rem] w-[30rem] -->
+        <!-- left part -->
+        <div class="h-full w-full">
+            <div class="flex justify-center text-[#6C6C6C] font-sans font-medium tracking-wide text-xl">
+                Profile
+            </div>
+            <!-- img part aita -->
+            <div class="flex justify-center mt-4">
+                <div class="h-28 w-28 rounded-full bg-[#6C6C6C] flex justify-center items-center">
+                    <img class="h-[6.5rem] w-[6.5rem] rounded-full" src="./Img/Teacher card photos/user.png" alt="" />
+                </div>
+            </div>
+            <!-- img part aita -->
+            <!-- name and work of Teacher -->
+            <div class="flex justify-center items-center mt-4 flex-col">
+                <div class="text-black font-sans font-bold tracking-wide text-xl">
+                    Swarnadip
+                </div>
+                <div class="text-[#6C6C6C] font-sans font-light tracking-wide text-xl">
+                    WEB Dev
+                </div>
+            </div>
+            <!-- name and work of Teacher -->
+            <!-- rest of the information -->
+            <div class="flex justify-evenly mt-">
+                <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
+                    <div class="text-black font-sans font-light tracking-wide text-2xl">
+                        21
+                    </div>
+                    <div class="text-[#6C6C6C] font-sans font-extralight text-lg">
+                        Students
+                    </div>
+                </div>
+                <img src="./Img/Rectangle 3.png" alt="" />
+                <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
+                    <div class="text-black font-sans font-light tracking-wide text-2xl">
+                        4+
+                    </div>
+                    <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4">
+                        Years of experience
+                    </div>
+                </div>
+                <img src="./Img/Rectangle 3.png" alt="" />
+                <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
+                    <div class="text-black font-sans font-light tracking-wide text-2xl">
+                        B.Ed
+                    </div>
+                </div>
+            </div>
+            <!-- rest of the information -->
+            <!-- contact button and location -->
+            <div class="flex justify-center items-center mt-8 flex-col">
+                <a href="#"><button class="h-10 w-[13rem] bg-[#3461FF] flex justify-center items-center rounded-xl text-white font-sans font-light tracking-wide text-lg capitalize">
+                        Contact
+                    </button></a>
+                <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4 mt-2">
+                    India , west bengal
+                </div>
+            </div>
+            <!-- contact button and location -->
+        </div>
+        <!-- left part -->
+
+        <!-- h-[35rem] w-[40rem] -->
+        <!-- right part -->
+        <div class="h-full w-full flex flex-col gap-7 px-16 relative 
+            border-l-2 border-black/30
+        ">
+            <!--todo Element 1 -->
+            <div class="uppercase font-bold text-lg">Basic info</div>
+
+            <!--todo Element 2 (line img)-->
+            <div class="w-full">
+                <img class="w-full" src="./Img/Rectangle 21.png" alt="" />
+            </div>
+
+            <!--todo Element 3(first name & last name) -->
+            <div class="flex w-full justify-between gap-8">
+                <div class="capitalize flex flex-col w-full">
+                    <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">First name</label>
+                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="text" disabled />
+                </div>
+                <div class="capitalize flex flex-col w-full">
+                    <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Last name</label>
+                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="text" disabled />
+                </div>
+            </div>
+
+            <!--todo Element 4 (qualification) -->
+            <div class="flex w-full justify-between gap-8">
+                <div class="capitalize flex flex-col w-full">
+                    <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Qualification</label>
+                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="text" disabled />
+                </div>
+            </div>
+
+            <!--todo Element 5 (email)-->
+            <div class="flex w-full justify-between gap-8">
+                <div class="capitalize flex flex-col w-full">
+                    <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Email</label>
+                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="email" disabled />
+                </div>
+            </div>
+
+            <!--todo Element 6 (about me heading)-->
+            <div class="uppercase font-bold text-lg">About Me</div>
+
+            <!--todo Element 7 (line img) -->
+            <div class="w-full">
+                <img class="w-full" src="./Img/Rectangle 21.png" alt="" />
+            </div>
+
+            <!--todo Element 8 (about me section) -->
+            <div class="flex w-full justify-between gap-8 z-10">
+                <div class="capitalize flex flex-col w-full">
+                    <input class="border-2 bg-white/50 outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-24 z-10 backdrop-blur-sm" type="text" disabled />
+                </div>
+            </div>
+        </div>
+        <!-- right part ENDD-->
+
+        <!-- <img src="./Img/Line 11.png" alt=""> -->
+    </div>
+
+    <!--* middle part(two images)  -->
+    <div class="w-full h-96 justify-between relative">
+        <img class="absolute bottom-8 h-[30rem] left-0" src="./Img/profilepage/profileImage2.svg" alt="" />
+        <img class="absolute bottom-20 h-[30rem] right-0" src="./Img/profilepage/profileImage1.svg" alt="" />
+    </div>
+    <main id="contact-section" class="relative bg-[#f1f1f1] h-auto p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
+        <section class="bg-white h-[40rem] w-[90%] rounded-2xl p-2 flex justify-between gap-2 shadow-lg z-10">
+
+            <!-- This is left section of contact area -->
+            <div class="relative bg-black rounded-2xl h-full w-2/5 pl-8 pt-12 overflow-hidden">
+                <heading class="text-4xl font-semibold text-white">Contact Information</heading>
+                <p class="text-white/50 mt-2">Say something to start a live chat!</p>
+                <section class="mt-20 text-white flex flex-col gap-8">
+                    <span class="flex gap-8 font-poppins text-lg"><img src="./Img/ui-buttons/bxs_phone-call.svg" alt="">+91 1234567890</span>
+                    <span class="flex gap-8 font-poppins text-lg"><img src="./Img/ui-buttons/ic_sharp-email.svg" alt="">demo@email.com</span>
+                    <span class="flex gap-8 font-poppins text-lg"><img src="./Img/ui-buttons/carbon_location-filled.svg" alt="">132 Dartmouth Street Boston, Massachusetts 02156 United States</span>
+                </section>
+
+                <!-- 2 circle div -->
+                <div class="bg-white/40 absolute -bottom-32 -right-32 h-80 w-80 rounded-full"></div>
+                <div class="bg-white/40 absolute bottom-16 right-16 h-40 w-40 rounded-full"></div>
+
+                <!-- social icons section -->
+                <section class="mt-40 flex gap-8">
+                    <a href="#"><img src="./Img/ui-buttons/twitter.svg" alt=""></a>
+                    <a href="#"><img src="./Img/ui-buttons/insta.svg" alt=""></a>
+                    <a href="#"><img src="./Img/ui-buttons/Facebook.svg" alt=""></a>
+                </section>
+            </div>
+            <!-- This is right section of contact area -->
+            <div class="relative rounded-2xl h-full w-3/5 px-8 pt-12">
+                <form class="flex flex-col gap-16 font-poppins" action="">
+                    <section class="flex justify-evenly gap-12">
+                        <span class="w-1/2 flex flex-col gap-2">
+                            <label for="FName">First Name</label>
+                            <input type="text" id="FName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
+                        </span>
+                        <span class="w-1/2 flex flex-col gap-2">
+                            <label for="LName">Last Name</label>
+                            <input type="text" id="LName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
+                        </span>
+                    </section>
+                    <section class="flex justify-evenly gap-12">
+                        <span class="w-1/2 flex flex-col gap-2">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
+                        </span>
+                        <span class="w-1/2 flex flex-col gap-2">
+                            <label for="Pnumber">Phone Number</label>
+                            <input type="number" id="Pnumber" class="border-b-2 border-t-0 border-x-0 border-black/50 outline-none w-full text-black/50" required autocomplete="off">
+                        </span>
+                    </section>
+                    <section>
+                        <heading class="text-black text-xl font-semibold">Select Subject?</heading>
+                        <div class="mt-4">
+                            <input type="radio" class="" name="subjectContact" id="ginquiry" value="ginquiry" required>
+                            <label for="ginquiry">General inquiry</label>
+                            <input type="radio" class="ml-8" name="subjectContact" id="refund" value="refund" required>
+                            <label for="refund">Refund</label>
+                            <input type="radio" class="ml-8" name="subjectContact" id="working" value="working" required>
+                            <label for="working">How it works?</label>
+                            <input type="radio" class="ml-8" name="subjectContact" id="Others" value="Others" required>
+                            <label for="Others">Others</label>
+                        </div>
+                    </section>
+                    <span class="w-full flex flex-col gap-2">
+                        <label for="textBox">Your message</label>
+                        <input type="text" id="textBox" class="border-b-2 border-black/50 outline-none w-full text-black/50" required>
+                    </span>
+                    <div class="w-full flex justify-end items-end">
+                        <input type="submit" class="contact-form-submit-btn h-12 w-60 rounded-full text-white bg-[#3461FF] cursor-pointer hover:scale-105 duration-300" id="contact-form-submit-btn" value="Send message" />
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="bg-gradient-to-r from-[#3461FF] via-[#3461FF] to-[#6B88EF] w-screen h-96 rounded-tr-[17rem] rounded-tl-[10rem] absolute -bottom-12 left-0  z-0"></section>
+    </main>
+    <!-- ending of contact us section -->
+
+    <!-- footer section start -->
+    <footer class="relative bg-gradient-to-r from-[#3461FF] via-[#3461FF] to-[#6B88EF] w-full h-auto overflow-hidden">
+        <img class="absolute top-0 left-0 z-0 w-screen mt-24" src="./Img/ui-buttons/Rectangle 207.svg" alt="">
+        <section class="relative z-10 flex justify-between px-12 py-32">
+            <!-- this is the left section area of the footer -->
+            <div class="z-10 flex  flex-col items-center w-[30%] gap-12">
+                <img class="mt-24 w-52 relative z-10" src="./Img/Logo/Mentor Mosaic-footer-logo.svg" alt="">
+                <section class="flex gap-16 z-10">
+                    <a href="#"><img src="./Img/ui-buttons/twitter.svg" alt=""></a>
+                    <a href="#"><img src="./Img/ui-buttons/insta.svg" alt=""></a>
+                    <a href="#"><img src="./Img/ui-buttons/Facebook.svg" alt=""></a>
+                </section>
+                <button class="h-12 bg-white w-52 rounded-full">Contact Us</button>
+            </div>
+            <!-- this is the right section area of the footer mainly tab area-->
+            <div class="w-[50%] mt-24 flex gap-20">
+                <section class="flex flex-col gap-12">
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Work With Us</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Advertise With Us</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Support Us</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Business Advices</a>
+                </section>
+                <section class="flex flex-col gap-12">
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Private Coaching</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Our Work</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Our Commitment</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Our Team</a>
+                </section>
+                <section class="flex flex-col gap-12">
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">About Us</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">FAQs</a>
+                    <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Report a bug</a>
+                </section>
+            </div>
+        </section>
+    </footer>
+    <!-- copyright section -->
+    <section class="h-20 full py-8 px-12 bg-black text-white font-medium text-base flex justify-between">
+        <span>&copy; 2023 Mentor mosaic, Inc. - All Rights Reserved</span>
+        <div class="flex justify-around gap-8">
+            <span>Terms Of Use</span>
+            <span>Privacy Policy</span>
+        </div>
+    </section>
+    <!-- main div -->
+</profile>
+<?php
+include("footer.php")
+?>
