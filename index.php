@@ -219,7 +219,7 @@ include("nav.php");
 <!-- ending of cta section -->
 
 <!-- starting of why choose us section -->
-<main class="bg-[#f1f1f1] lg:h-[55rem] w-full py-28 overflow-hidden relative">
+<main id="about-us-section" class="bg-[#f1f1f1] lg:h-[55rem] w-full py-28 overflow-hidden relative">
   <div class="absolute flex justify-evenly rounded-[8rem] bg-white lg:h-[45rem] h-[85rem] sm:max-lg:h-[65rem] lg:w-full w-[90rem] -translate-x-1/4 lg:translate-x-0 shadow-lg rotate-3"></div>
   <img class="h-28 w-28 absolute top-0 -rotate-6 left-0 " src="./Img/ui-buttons/packman.svg" alt="design image">
 
@@ -316,7 +316,7 @@ include("nav.php");
 <!-- ending of the testimonial section -->
 
 <!-- starting of Faq section -->
-<main class="relative py-20 flex flex-col gap-20">
+<main id="faq-section" class="relative py-20 flex flex-col gap-20">
   <section class="w-4/5 h-auto mx-auto flex justify-between lg:flex-row flex-col-reverse lg:gap-0 gap-16">
     <!-- this is the left section of the faq -->
     <div class="lg:w-1/2 w-full h-full font-medium text-lg ">
@@ -329,11 +329,11 @@ include("nav.php");
     <div class="lg:w-1/2 w-full  h-full flex text-left gap-8 flex-col  lg:pl-32">
       <heading class="text-4xl font-semibold">How can we help you?</heading>
       <p class="font-normal text-black/50">Follow our newsletter. We will regulary update our latest project and availability.</p>
-      <contactArea>
-        <form action="" class="flex gap-4 mt-8 sm:flex-row flex-col">
-          <input type="text" name="" id="" placeholder="Enter your email" class=" bg-[#fafafa] border-black/20 border-2 h-12 sm:w-4/5 w-full rounded-full px-4  outline-none  placeholder:text-black/50">
-          <input type="submit" class="bg-[#3461FF] h-12 sm:w-32 w-full rounded-full text-white cursor-pointer" value="Lets Talk">
-        </form>
+      <contactArea class="flex gap-4 mt-8 sm:flex-row flex-col">
+
+        <input type="text" name="" id="faq-mail" placeholder="Enter your email" class=" bg-[#fafafa] border-black/20 border-2 h-12 sm:w-4/5 w-full rounded-full px-4  outline-none  placeholder:text-black/50">
+        <a href="#contact-section"><input id="faq-submit-button" type="button" class="bg-[#3461FF] h-12 sm:w-32 w-full rounded-full text-white cursor-pointer" value="Lets Talk"></a>
+
       </contactArea>
       <a class="font-bold text-[#3461FF] text-lg hover:underline underline-offset-2" href="">More FAQ -></a>
     </div>
@@ -344,7 +344,7 @@ include("nav.php");
 <!-- ending of Faq section -->
 
 <!-- starting of contact us section -->
-<main class="relative bg-[#f1f1f1] h-auto p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
+<main id="contact-section" class="relative bg-[#f1f1f1] h-auto p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
   <section class="bg-white h-[40rem] w-[90%] rounded-2xl p-2 flex justify-between gap-2 shadow-lg z-10">
 
     <!-- This is left section of contact area -->
@@ -374,42 +374,42 @@ include("nav.php");
         <section class="flex justify-evenly gap-12">
           <span class="w-1/2 flex flex-col gap-2">
             <label for="FName">First Name</label>
-            <input type="text" id="FName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50">
+            <input type="text" id="FName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
           </span>
           <span class="w-1/2 flex flex-col gap-2">
             <label for="LName">Last Name</label>
-            <input type="text" id="LName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50">
+            <input type="text" id="LName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
           </span>
         </section>
         <section class="flex justify-evenly gap-12">
           <span class="w-1/2 flex flex-col gap-2">
             <label for="email">Email</label>
-            <input type="text" id="email" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50">
+            <input type="text" id="email" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
           </span>
           <span class="w-1/2 flex flex-col gap-2">
             <label for="Pnumber">Phone Number</label>
-            <input type="text" id="Pnumber" class="border-b-2 border-t-0 border-x-0 border-black/50 outline-none w-full text-black/50">
+            <input type="number" id="Pnumber" class="border-b-2 border-t-0 border-x-0 border-black/50 outline-none w-full text-black/50" required autocomplete="off">
           </span>
         </section>
         <section>
           <heading class="text-black text-xl font-semibold">Select Subject?</heading>
           <div class="mt-4">
-            <input type="radio" class="" name="subjectContact" id="ginquiry" value="ginquiry">
+            <input type="radio" class="" name="subjectContact" id="ginquiry" value="ginquiry" required>
             <label for="ginquiry">General inquiry</label>
-            <input type="radio" class="ml-8" name="subjectContact" id="refund" value="refund">
+            <input type="radio" class="ml-8" name="subjectContact" id="refund" value="refund" required>
             <label for="refund">Refund</label>
-            <input type="radio" class="ml-8" name="subjectContact" id="working" value="working">
+            <input type="radio" class="ml-8" name="subjectContact" id="working" value="working" required>
             <label for="working">How it works?</label>
-            <input type="radio" class="ml-8" name="subjectContact" id="Others" value="Others">
+            <input type="radio" class="ml-8" name="subjectContact" id="Others" value="Others" required>
             <label for="Others">Others</label>
           </div>
         </section>
         <span class="w-full flex flex-col gap-2">
           <label for="textBox">Your message</label>
-          <input type="text" id="textBox" class="border-b-2 border-black/50 outline-none w-full text-black/50">
+          <input type="text" id="textBox" class="border-b-2 border-black/50 outline-none w-full text-black/50" required>
         </span>
         <div class="w-full flex justify-end items-end">
-          <input type="submit" class=" h-12 w-60 rounded-full text-white bg-[#3461FF]" id="contact-form-submit-btn" value="Send message" />
+          <input type="submit" class="contact-form-submit-btn h-12 w-60 rounded-full text-white bg-[#3461FF] cursor-pointer hover:scale-105 duration-300" id="contact-form-submit-btn" value="Send message" />
         </div>
       </form>
     </div>
