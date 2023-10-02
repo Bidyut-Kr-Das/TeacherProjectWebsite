@@ -56,6 +56,7 @@ try {
   document.addEventListener("mouseup", dragStop);
 } catch (error) {
   console.log(error.message);
+  console.log("If you are not on landing page! Ignore this error");
 }
 
 const bannerWrapper = document.querySelector(".bannerCarousel");
@@ -107,6 +108,25 @@ const validateContact = () => {
     return false;
   } else return true;
 };
+
+const deleteThis = (y) => {
+  let childCount = $("#cloningArea").children().length;
+  // console.log(childCount);
+  if (childCount - 1 < 5) $("#addRow").show();
+  $(y).parent().remove();
+};
+
+const passwordCheck = () => {
+  let password = $("#password").val();
+  let confpassword = $("#confpassword").val();
+  if (password !== confpassword) {
+    popUp("password does not match.");
+    return false;
+  }
+  $("#email").removeAttr("disabled");
+  return true;
+};
+
 //ajax php calling
 $(document).ready(() => {
   //contact us form
@@ -155,4 +175,141 @@ $(document).ready(() => {
     $("#faq-mail").val("");
     $("#email").val(emailget);
   });
+
+  //? add new row with class and subject(teacherRegistration.php);
+  $("#addRow").on("click", () => {
+    $("#cloningElement").clone().appendTo("#cloningArea");
+    let childCount = $("#cloningArea").children().length;
+    if (childCount === 5) $("#addRow").hide();
+    let x = $("#cloningArea").children().children("img");
+    // console.log(x);
+    x.removeClass("hidden");
+  });
+
+  //*ajax call for the teacher registration form (teacherRegistration.php);
+  $("#teacherRegSubBtn").on("click", (event) => {
+    event.preventDefault();
+
+    let Fnameget = $("#firstName").val();
+    let Lnameget = $("#lastName").val();
+    let phoneNumberGet = $("#phoneNumber").val();
+    let emailget = $("#email").val();
+    let genderget = $("#gender").val();
+    let ageGet = $("#age").val();
+    let experienceGet = $("#experience").val();
+    let qualificationGet = $("#qualification").val();
+    let addressGet = $("#address").val();
+    let stateGet = $("#state").val();
+
+    if (Fnameget === "") {
+      popUp("First name can not empty!");
+      return false;
+    } else if (Lnameget === "") {
+      popUp("Last name can not empty!");
+      return false;
+    } else if (phoneNumberGet === "") {
+      popUp("Phone Number can not empty!");
+      return false;
+    } else if (
+      emailget === "" ||
+      !emailget.includes("@") ||
+      !emailget.includes(".")
+    ) {
+      popUp("Please enter a valid email!");
+      return false;
+    } else if (genderget === "") {
+      popUp("Select a gender");
+      return false;
+    } else if (genderget === "") {
+      popUp("Select a gender");
+      return false;
+    } else if (ageGet < 18) {
+      popUp("Age must be greater than 18!");
+      return false;
+    } else if (qualificationGet === "") {
+      popUp("Provide your qualification!");
+      return false;
+    } else if (addressGet === "") {
+      popUp("Please enter a valid address!");
+      return false;
+    } else if (stateGet === "") {
+      popUp("Please enter a valid state!");
+      return false;
+    } else if (experienceGet === "") {
+      experienceGet = "Not Yet";
+    } else console.log("hehe");
+
+    //? arrays to store the subjects and classes
+    const subjarr = [];
+    const classarr = [];
+
+    //? this for each loop puts ids of selected subject into subjarr array
+    $("#subjects[name='subjects']").each((index, element) => {
+      // console.log($(element).val());
+      subjarr.push($(element).val());
+    });
+
+    //? this for each loop pushes ids of selected classes into class array
+    $("#classes[name='classes']").each((index, element) => {
+      classarr.push($(element).val());
+    });
+
+    // console.log(subjectArray);
+    $.ajax({
+      url: "functions/teacherReg.php",
+      type: "POST",
+      data: {
+        fName: Fnameget,
+        lName: Lnameget,
+        phoneNumber: phoneNumberGet,
+        email: emailget,
+        gender: genderget,
+        age: ageGet,
+        experience: experienceGet,
+        qualification: qualificationGet,
+        address: addressGet,
+        state: stateGet,
+        subjectArray: JSON.stringify(subjarr),
+        classArray: JSON.stringify(classarr),
+      },
+      success: (res) => {
+        console.log(res);
+
+        if (res === "email") {
+          popUp("Email id is already registered!");
+          return false;
+        } else if (res === "phoneNumber") {
+          popUp("Phone number is already registered!");
+          return false;
+        }
+
+        $("#firstName").val("");
+        $("#lastName").val("");
+        $("#phoneNumber").val("");
+        $("#email").val("");
+        $("#gender").val("");
+        $("#age").val("");
+        $("#experience").val("");
+        $("#qualification").val("");
+        $("#address").val("");
+        $("#state").val("");
+        window.location.href =
+          "signup.php?teacherid=" +
+          res +
+          "&servilence=lambda&email=" +
+          emailget;
+      },
+    });
+    // console.log(subjarr);
+  });
+
+  $('#showTable').on("click",()=>{
+    $('#tableArea').show();
+  });
+  $(document).on("click",(event)=>{
+    console.log(event)
+    if(event.target.id!=='tableSection'&& event.target.id!=='showTable'){
+      $('#tableArea').hide();
+    }
+  })
 });

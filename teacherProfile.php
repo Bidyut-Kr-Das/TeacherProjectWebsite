@@ -1,6 +1,26 @@
 <?php
 include("header.php");
 include("nav.php");
+include("connection.php");
+$sessionTeacher = false;
+if (isset($_SESSION['teacherId'])) {
+    $sessionTeacherId = $_SESSION['teacherId'];
+}
+$teacherId = $_REQUEST['teachSuperId'];
+
+if($teacherId==$sessionTeacherId){
+    $sessionTeacher=true;
+}
+
+$query = "SELECT * FROM `teacher-table` WHERE `id` = '$teacherId'";
+$res = mysqli_query($connection, $query);
+if (mysqli_num_rows($res) == 0) {
+    @header("location:NoTeacher.php?");
+    exit();
+}
+$row = mysqli_fetch_array($res);
+$Fullname = $row['firstName'] . " " . $row['lastName'];
+
 
 ?>
 
@@ -22,8 +42,8 @@ include("nav.php");
             <!-- img part aita -->
             <!-- name and work of Teacher -->
             <div class="flex justify-center items-center mt-4 flex-col">
-                <div class="text-black font-sans font-bold tracking-wide text-xl">
-                    Swarnadip
+                <div class="capitalize text-black font-sans font-bold tracking-wide text-xl">
+                    <?php echo $Fullname; ?>
                 </div>
                 <div class="text-[#6C6C6C] font-sans font-light tracking-wide text-xl">
                     WEB Dev
@@ -33,17 +53,18 @@ include("nav.php");
             <!-- rest of the information -->
             <div class="flex justify-evenly mt-">
                 <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
-                    <div class="text-black font-sans font-light tracking-wide text-2xl">
-                        21
+                    <div class="text-black font-sans font-light tracking-wide
+                     ">
+                        Classes-Subjects
                     </div>
                     <div class="text-[#6C6C6C] font-sans font-extralight text-lg">
-                        Students
+                        <button id="showTable" class="hover:underline underline-offset-4">Show table</button>
                     </div>
                 </div>
                 <img src="./Img/Rectangle 3.png" alt="" />
                 <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
                     <div class="text-black font-sans font-light tracking-wide text-2xl">
-                        4+
+                        <?php echo $row['experience'];?>+
                     </div>
                     <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4">
                         Years of experience
@@ -52,18 +73,25 @@ include("nav.php");
                 <img src="./Img/Rectangle 3.png" alt="" />
                 <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
                     <div class="text-black font-sans font-light tracking-wide text-2xl">
-                        B.Ed
+                        <?php echo $row['qualification']; ?>
                     </div>
                 </div>
             </div>
             <!-- rest of the information -->
             <!-- contact button and location -->
             <div class="flex justify-center items-center mt-8 flex-col">
-                <a href="#"><button class="h-10 w-[13rem] bg-[#3461FF] flex justify-center items-center rounded-xl text-white font-sans font-light tracking-wide text-lg capitalize">
-                        Contact
+                <a href="<?php if($sessionTeacher) echo "#"; ?>"><button class="h-10 w-[13rem] bg-[#3461FF] flex justify-center items-center rounded-xl text-white font-sans font-light tracking-wide text-lg capitalize">
+                        <?php 
+                        if($sessionTeacher){
+                            echo "Edit Profile";
+                        }
+                        else{
+                            echo "Contact";
+                        }                      
+                        ?>
                     </button></a>
                 <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4 mt-2">
-                    India , west bengal
+                    India , <?php echo $row['state']; ?>
                 </div>
             </div>
             <!-- contact button and location -->
@@ -87,11 +115,11 @@ include("nav.php");
             <div class="flex w-full justify-between gap-8">
                 <div class="capitalize flex flex-col w-full">
                     <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">First name</label>
-                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="text" disabled />
+                    <input class="capitalize border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10 px-4" type="text" value="<?php echo $row['firstName']; ?>" disabled />
                 </div>
                 <div class="capitalize flex flex-col w-full">
                     <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Last name</label>
-                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="text" disabled />
+                    <input class="capitalize border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10 px-4" value="<?php echo $row['lastName'];?>" type="text" disabled />
                 </div>
             </div>
 
@@ -99,7 +127,7 @@ include("nav.php");
             <div class="flex w-full justify-between gap-8">
                 <div class="capitalize flex flex-col w-full">
                     <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Qualification</label>
-                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="text" disabled />
+                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10 px-4" value="<?php echo $row['qualification'];?>" type="text" disabled />
                 </div>
             </div>
 
@@ -107,12 +135,12 @@ include("nav.php");
             <div class="flex w-full justify-between gap-8">
                 <div class="capitalize flex flex-col w-full">
                     <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Email</label>
-                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" type="email" disabled />
+                    <input class="px-4 border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10" value="<?php echo $row['email'];?>" type="email" disabled />
                 </div>
             </div>
 
             <!--todo Element 6 (about me heading)-->
-            <div class="uppercase font-bold text-lg">About Me</div>
+            <div class="uppercase font-bold text-lg">Address</div>
 
             <!--todo Element 7 (line img) -->
             <div class="w-full">
@@ -122,7 +150,7 @@ include("nav.php");
             <!--todo Element 8 (about me section) -->
             <div class="flex w-full justify-between gap-8 z-10">
                 <div class="capitalize flex flex-col w-full">
-                    <input class="border-2 bg-white/50 outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-24 z-10 backdrop-blur-sm" type="text" disabled />
+                    <textarea class="border-2 bg-white/50 outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-24 z-10 backdrop-blur-sm" value="" type="text" disabled ><?php echo $row['address'];?></textarea>
                 </div>
             </div>
         </div>
@@ -136,6 +164,36 @@ include("nav.php");
         <img class="absolute bottom-8 h-[30rem] left-0" src="./Img/profilepage/profileImage2.svg" alt="" />
         <img class="absolute bottom-20 h-[30rem] right-0" src="./Img/profilepage/profileImage1.svg" alt="" />
     </div>
+
+    <!-- //table -->
+    <section id="tableArea" class="hidden fixed top-0 left-0 z-30 h-screen backdrop-blur-sm w-screen bg-black/50">
+        <div id="tableSection"  class=" tableArea absolute top-40 left-0 right-0 h-96 w-96 mx-auto bg-white backdrop-blur-md shadow-md z-30 rounded-lg py-8">
+            <table class="tableArea mx-auto w-[90%] border-2 rounded-lg border-black/50">
+                <tr class="border-2 border-black/50">
+                    <th class="p-4 border-2 border-black/50">Class</th>    
+                    <th class="p-4 border-2 border-black/50">Subject</th>
+                </tr>
+
+                <?php 
+                $classSubjquery = "SELECT * FROM `teacher-cls-subj`
+                INNER JOIN `subject-table` ON `subject-table`.`id`=`teacher-cls-subj`.`subjectId`
+                INNER JOIN `class-table` ON `class-table`.`id`=`teacher-cls-subj`.`classId`
+                WHERE `teacherId`='$teacherId'";
+                $resarr = mysqli_query($connection,$classSubjquery);
+
+                while($rowarr = mysqli_fetch_array($resarr)){
+                ?>
+                <tr class="border-2 border-black/50">
+                    <td class="p-4 text-center border-2 border-black/50"><?php echo $rowarr['subjectName'];?></td>
+                    <td class="p-4 text-center border-2 border-black/50"><?php echo $rowarr['className'];?></td>
+                </tr>
+                <?php 
+                }
+                ?>
+            </table>
+        </div>
+    </section>
+    <!-- //contact us section -->
     <main id="contact-section" class="relative bg-[#f1f1f1] h-auto p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
         <section class="bg-white h-[40rem] w-[90%] rounded-2xl p-2 flex justify-between gap-2 shadow-lg z-10">
 

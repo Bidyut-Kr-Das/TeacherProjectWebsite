@@ -1,5 +1,6 @@
 <!-- -----------------------------------navbar start ------------------------------------------------------>
 <?php
+include("connection.php");
 include("header.php");
 include("nav.php");
 ?>
@@ -65,15 +66,33 @@ include("nav.php");
   <section class="carousel-cu w-[90%] px-[5%] mx-auto grid grid-flow-col overflow-x-auto lg:overflow-x-hidden h-full py-8  gap-8">
     <!-- card section -->
     <!------------------ card 1 ------------------ ---->
+
+    <?php
+    $teacherQuery = "SELECT * FROM `teacher-table` ORDER BY rand() LIMIT 5";
+    $res = mysqli_query($connection,$teacherQuery);
+    
+    while($rowarr = mysqli_fetch_array($res)){
+    
+      $randTeacherId = $rowarr['id'];
+        $class = "SELECT * FROM `teacher-cls-subj`
+                  INNER JOIN `class-table` ON `class-table`.`id` = `teacher-cls-subj`.`classId`
+                  INNER JOIN `subject-table` ON `subject-table`.`id`=`teacher-cls-subj`.`subjectId`
+                  WHERE `teacherId` = '$randTeacherId'
+                  ORDER BY rand()  LIMIT 1";
+        $classRes = mysqli_query($connection,$class);
+        $classarr = mysqli_fetch_array($classRes);
+
+    ?>
+
     <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
 
       <!-- profile image area with absolute property -->
       <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
         <img class=" w-[4.5rem] h-[4.5rem] rounded-full" src="./Img/Teacher card photos/user.png" alt="" draggable="false">
         <span>
-          <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+          <heading class="capitalize block px-4 font-semibold text-2xl"><?php echo $rowarr['firstName']." ".$rowarr['lastName'];?></heading>
           <!------------------- subject Names -------------------->
-          <h1 class="px-4 text-black/60 mt-2">English, Mathematics
+          <h1 class="px-4 text-black/60 mt-2"><?php echo $classarr['subjectName'];?>
 
           </h1>
         </span>
@@ -83,103 +102,44 @@ include("nav.php");
       <!--------------- Tags area ---------------------------->
       <div class="px-4 flex gap-2 mt-3">
         <!-- tag 1 is for experience -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
+        <?php 
+        if($rowarr['experience']!="Not Yet"){
+        ?>
+        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70"><?php echo $rowarr['experience'];?> years</tag>
         <!-- tag 2 is for class -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
+        <?php 
+        }
+        ?>
+        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70"><?php echo $classarr['className'] ?></tag>
         <!-- tag 3 is for degree -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
+        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70"><?php echo $rowarr['qualification'];?></tag>
 
       </div>
       <!---------------------- connect button --------------------->
-      <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+      <a href="teacherProfile.php?teachSuperId=<?php echo $randTeacherId;?>" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
     </section>
-    <!-- ------------------ card 2 ------------------ -->
+    <?php 
+    }
+    ?>
     <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
 
       <!-- profile image area with absolute property -->
       <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
-        <img class=" w-[4.5rem] h-[4.5rem] rounded-full" src="./Img/Teacher card photos/user.png" alt="" draggable="false">
-        <span>
-          <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
+        <span class="w-full">
+          <heading class="w-full text-center capitalize font-semibold text-2xl block">Need more?</heading>
           <!------------------- subject Names -------------------->
-          <h1 class="px-4 text-black/60 mt-2">English, Mathematics
-
+          <h1 class=" block text-center w-full capitalize px-4 text-black/60 mt-2">
+            click the button below!
           </h1>
         </span>
       </div>
-      <!-- Teacher Name -->
+      
 
       <!--------------- Tags area ---------------------------->
-      <div class="px-4 flex gap-2 mt-3">
-        <!-- tag 1 is for experience -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
-        <!-- tag 2 is for class -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
-        <!-- tag 3 is for degree -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
-
-      </div>
+      
       <!---------------------- connect button --------------------->
-      <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
-    </section>
-    <!-- ---------------------card 3 ---------------------- ----->
-    <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
-
-      <!-- profile image area with absolute property -->
-      <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
-        <img class=" w-[4.5rem] h-[4.5rem] rounded-full" src="./Img/Teacher card photos/user.png" alt="" draggable="false">
-        <span>
-          <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
-          <!------------------- subject Names -------------------->
-          <h1 class="px-4 text-black/60 mt-2">English, Mathematics
-
-          </h1>
-        </span>
-      </div>
-      <!-- Teacher Name -->
-
-      <!--------------- Tags area ---------------------------->
-      <div class="px-4 flex gap-2 mt-3">
-        <!-- tag 1 is for experience -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
-        <!-- tag 2 is for class -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
-        <!-- tag 3 is for degree -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
-
-      </div>
-      <!---------------------- connect button --------------------->
-      <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
-    </section>
-    <!------------------------ card 4 ------------------->
-    <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
-
-      <!-- profile image area with absolute property -->
-      <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
-        <img class=" w-[4.5rem] h-[4.5rem] rounded-full" src="./Img/Teacher card photos/user.png" alt="" draggable="false">
-        <span>
-          <heading class=" block px-4 font-semibold text-2xl">Lisa Daniel</heading>
-          <!------------------- subject Names -------------------->
-          <h1 class="px-4 text-black/60 mt-2">English, Mathematics
-
-          </h1>
-        </span>
-      </div>
-      <!-- Teacher Name -->
-
-      <!--------------- Tags area ---------------------------->
-      <div class="px-4 flex gap-2 mt-3">
-        <!-- tag 1 is for experience -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">4 years</tag>
-        <!-- tag 2 is for class -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Class VII</tag>
-        <!-- tag 3 is for degree -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70">Graduated</tag>
-
-      </div>
-      <!---------------------- connect button --------------------->
-      <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
-    </section>
+      <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Explore</button></a>
+      </section>
   </section>
 </main>
 <!-- end of teacher card section  -->
@@ -194,9 +154,9 @@ include("nav.php");
         <div>Skills Today!</div>
       </div>
       <!-- right section -->
-      <div class="lg:w-1/2 w-full px-12  text-base sm:text-xl lg:py-28 z-20 text-white">Unlock exciting opportinuties of your carrer. Next step - Book a consultation with us today.
+      <div class="lg:w-1/2 w-full px-12  text-base sm:text-xl lg:py-28 z-20 text-white">Unlock exciting opportinuties of your carrer. Next step - Register as a teacher today.
         <br>
-        <button class="text-black bg-white md:w-32 w-full h-10 mt-8 rounded-full text-base font-medium">Book Call</button>
+        <a href="teacherRegistration.php"><button class="text-black bg-white md:w-32 w-full h-10 mt-8 rounded-full text-base font-medium">Register Now</button></a>
       </div>
     </wrapper>
     <!-- This is background ball -->
