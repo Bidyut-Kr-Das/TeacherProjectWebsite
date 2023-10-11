@@ -11,7 +11,7 @@ if (isset($_REQUEST['mode'])) {
     $teacherId = $_REQUEST['mode'];
     $password = md5($_REQUEST['password']);
     // $confpassword = $_REQUEST['confpassword'];
-    $query = "SELECT * FROM `user` WHERE `username`='$urlEmail'";
+    $query = "SELECT * FROM `user` WHERE `username`='$email'";
     $res = mysqli_query($connection, $query);
 
     if (mysqli_num_rows($res) > 0) {
@@ -19,21 +19,15 @@ if (isset($_REQUEST['mode'])) {
     } else {
 
         $query = "INSERT INTO `user` SET `teacherId` = '$teacherId',
-                                     `username`='$email',
-                                     `password` = '$password'";
+                                         `username`='$email',
+                                         `password` = '$password'";
         $res = mysqli_query($connection, $query);
         session_start();
         $_SESSION['teacherId'] = $teacherId;
-        @header("location:teacherProfile.php?teachSuperId=" . $teacherId);
+        header("location:teacherProfile.php?teachSuperId=" . $teacherId);
     }
 }
 
-$query = "SELECT * FROM `user` WHERE `username`='$urlEmail'";
-$res = mysqli_query($connection, $query);
-
-if (mysqli_num_rows($res) > 0) {
-    @header("location:teacherProfile.php");
-}
 
 ?>
 <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">

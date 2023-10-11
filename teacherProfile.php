@@ -3,21 +3,31 @@ include("header.php");
 include("nav.php");
 include("connection.php");
 $sessionTeacher = false;
-if (isset($_SESSION['teacherId'])) {
-    $sessionTeacherId = $_SESSION['teacherId'];
-}
 $teacherId = $_REQUEST['teachSuperId'];
 
-if($teacherId==$sessionTeacherId){
-    $sessionTeacher=true;
+?>
+
+<!-- <script>console.log('eyyyyy<?php echo $_SESSION['teacherId'];?>')</script> -->
+
+<?php
+
+
+if (isset($_SESSION['teacherId'])) {
+    $sessionTeacherId = $_SESSION['teacherId'];
+    if($teacherId==$sessionTeacherId){
+        $sessionTeacher=true;
+    }
 }
+
+
+
 
 $query = "SELECT * FROM `teacher-table` WHERE `id` = '$teacherId'";
 $res = mysqli_query($connection, $query);
-if (mysqli_num_rows($res) == 0) {
-    @header("location:NoTeacher.php?");
-    exit();
-}
+// if (mysqli_num_rows($res) == 0) {
+//     @header("location:NoTeacher.php?");
+//     exit();
+// }
 $row = mysqli_fetch_array($res);
 $Fullname = $row['firstName'] . " " . $row['lastName'];
 
@@ -46,7 +56,7 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
                     <?php echo $Fullname; ?>
                 </div>
                 <div class="text-[#6C6C6C] font-sans font-light tracking-wide text-xl">
-                    WEB Dev
+                    Teacher
                 </div>
             </div>
             <!-- name and work of Teacher -->
@@ -184,8 +194,8 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
                 while($rowarr = mysqli_fetch_array($resarr)){
                 ?>
                 <tr class="border-2 border-black/50">
-                    <td class="p-4 text-center border-2 border-black/50"><?php echo $rowarr['subjectName'];?></td>
                     <td class="p-4 text-center border-2 border-black/50"><?php echo $rowarr['className'];?></td>
+                    <td class="p-4 text-center border-2 border-black/50"><?php echo $rowarr['subjectName'];?></td>
                 </tr>
                 <?php 
                 }

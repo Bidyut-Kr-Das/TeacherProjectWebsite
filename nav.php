@@ -1,3 +1,12 @@
+<?php 
+session_start();
+$sesisonTeacher = false;
+if(isset($_SESSION['teacherId'])){
+  $sesisonTeacher = true;
+}
+
+?>
+
 <nav class="flex justify-between h-16 items-center bg-white fixed z-30 top-0 left-0 w-full px-10 md:px-8 lg:px-20 shadow-sm">
   <!-- logoArea -->
   <div class="h-12 w-20">
@@ -25,9 +34,27 @@
         FAQs
       </div>
     </a>
-    <a class="mx-auto md:mx-0" href="#contact-section">
+    <a class="mx-auto md:mx-0" href="
+    <?php 
+    if(!$sesisonTeacher){
+      echo "#contact-section";
+    }
+    else{
+      echo "logout.php";
+    }
+    ?>
+    ">
       <div class="bg-[#3461FF] h-12 w-32 leading-[3rem] text-white rounded-full">
-        Book a call
+      <?php 
+      if(!$sesisonTeacher){
+        echo "Book a call";
+      }
+      else{
+        echo "Logout";
+      }
+      
+      ?>  
+      
       </div>
     </a>
   </div>

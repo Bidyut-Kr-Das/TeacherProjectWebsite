@@ -1,6 +1,14 @@
 <?php
+include("connection.php");
 include("header.php");
 include("nav.php");
+/*
+*admin login info
+*--username: admin@mm.com
+*--password: admin
+*/
+
+
 ?>
 <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
     <div class="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -12,6 +20,8 @@ include("nav.php");
                     <h1 class="text-2xl font-semibold">Hello again!</h1>
                     <h2 class="text-black/50">Welcome back!</h2>
                 </div>
+                
+                <input type="hidden" name="mode" value="1">
                 <div class="divide-y divide-gray-200">
                     <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                         <div class="relative">
@@ -23,7 +33,7 @@ include("nav.php");
                             <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                         </div>
                         <div class="relative">
-                            <button class="bg-blue-500 text-white rounded-md px-2 py-1">Sign in</button>
+                            <button id="Signin-btn" class="bg-blue-500 text-white rounded-md px-2 py-1">Sign in</button>
                         </div>
                     </div>
                 </div>
