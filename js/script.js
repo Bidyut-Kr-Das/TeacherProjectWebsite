@@ -111,8 +111,8 @@ const validateContact = () => {
 
 const deleteThis = (y) => {
   let childCount = $("#cloningArea").children().length;
-  // console.log(childCount);
-  if (childCount - 1 < 5) $("#addRow").show();
+  console.log(childCount);
+  if (childCount - 1 < 4) $("#addRow").show();
   $(y).parent().remove();
 };
 
@@ -180,7 +180,8 @@ $(document).ready(() => {
   $("#addRow").on("click", () => {
     $("#cloningElement").clone().appendTo("#cloningArea");
     let childCount = $("#cloningArea").children().length;
-    if (childCount === 5) $("#addRow").hide();
+    console.log(childCount);
+    if (childCount >= 4) $("#addRow").hide();
     let x = $("#cloningArea").children().children("img");
     // console.log(x);
     x.removeClass("hidden");
@@ -198,6 +199,10 @@ $(document).ready(() => {
     let ageGet = $("#age").val();
     let experienceGet = $("#experience").val();
     let qualificationGet = $("#qualification").val();
+    let localityGet = $("#locality").val();
+    localityGet = localityGet.toString().toLowerCase();
+    console.log(localityGet)
+    let mapLinkGet = $("#googleMapLink").val();
     let addressGet = $("#address").val();
     let stateGet = $("#state").val();
 
@@ -209,6 +214,9 @@ $(document).ready(() => {
       return false;
     } else if (phoneNumberGet === "") {
       popUp("Phone Number can not empty!");
+      return false;
+    } else if (phoneNumberGet.length<10) {
+      popUp("Enter valid phone number");
       return false;
     } else if (
       emailget === "" ||
@@ -226,6 +234,9 @@ $(document).ready(() => {
     } else if (ageGet < 18) {
       popUp("Age must be greater than 18!");
       return false;
+    } else if (ageGet > 80) {
+      popUp("Age can not be greater than 80!");
+      return false;
     } else if (qualificationGet === "") {
       popUp("Provide your qualification!");
       return false;
@@ -235,15 +246,20 @@ $(document).ready(() => {
     } else if (stateGet === "") {
       popUp("Please enter a valid state!");
       return false;
+    } else if (localityGet === "") {
+      popUp("Please provide locality!");
+      return false;
     } else if (experienceGet === "") {
       experienceGet = "Not Yet";
+    } else if (mapLinkGet === "") {
+      mapLinkGet = "Not Provided";
     } else console.log("hehe");
 
     //? arrays to store the subjects and classes
     const subjarr = [];
     const classarr = [];
 
-    //? this for each loop puts ids of selected subject into subjarr array
+    //? this for each loop pushes ids of selected subject into subjarr array
     $("#subjects[name='subjects']").each((index, element) => {
       // console.log($(element).val());
       subjarr.push($(element).val());
@@ -267,6 +283,8 @@ $(document).ready(() => {
         age: ageGet,
         experience: experienceGet,
         qualification: qualificationGet,
+        locality:localityGet,
+        mapLink:mapLinkGet, 
         address: addressGet,
         state: stateGet,
         subjectArray: JSON.stringify(subjarr),
@@ -291,6 +309,7 @@ $(document).ready(() => {
         $("#age").val("");
         $("#experience").val("");
         $("#qualification").val("");
+        $("#googleMapLink").val("");
         $("#address").val("");
         $("#state").val("");
         window.location.href =
@@ -340,7 +359,30 @@ $(document).ready(() => {
       }
     })
 
-  })
+  });
+
+
+  $('#upload-dp').on("change",(e)=>{
+    if(e.target.files.length>0){
+      let formData = new FormData();
+      formData.append('upload-dp',e.target.files[0]);
+      $.ajax({
+        url:"uploadedProfileImage.php",
+        type:"POST",
+        data:formData,
+        contentType:false,
+        processData:false,
+        success:(res)=>{
+          popUp(res);
+        }
+      })
+      // console.log(formData);
+    }
+    else{
+      console.log("file is not selected");
+    }
+
+  });
 
 
 });

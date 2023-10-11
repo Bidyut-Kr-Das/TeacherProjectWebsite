@@ -30,6 +30,8 @@ $gender = $_REQUEST['gender'];
 $age = $_REQUEST['age'];
 $experience = $_REQUEST['experience'];
 $qualification = $_REQUEST['qualification'];
+$locality = $_REQUEST['locality'];
+$mapLink = $_REQUEST['mapLink'];
 $address = $_REQUEST['address'];
 $state = $_REQUEST['state'];
 
@@ -42,6 +44,8 @@ $query = "INSERT INTO `teacher-table` SET `firstName` = '$fName',
                                          `age` = '$age',
                                          `experience` = '$experience',
                                          `qualification` = '$qualification',
+                                         `locality` = '$locality',
+                                         `mapLink` = '$mapLink',
                                          `address` = '$address',
                                          `state` = '$state'";
 $res = mysqli_query($connection, $query);

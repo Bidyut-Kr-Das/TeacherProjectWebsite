@@ -4,7 +4,6 @@ include("nav.php");
 include("connection.php");
 $sessionTeacher = false;
 $teacherId = $_REQUEST['teachSuperId'];
-
 ?>
 
 <!-- <script>console.log('eyyyyy<?php echo $_SESSION['teacherId'];?>')</script> -->
@@ -31,6 +30,8 @@ $res = mysqli_query($connection, $query);
 $row = mysqli_fetch_array($res);
 $Fullname = $row['firstName'] . " " . $row['lastName'];
 
+$profilequery = "SELECT * FROM `teacher-profileimage-table` WHERE `teacherId` = '$teacherId'";
+$profileRes = mysqli_query($connection,$profilequery);
 
 ?>
 
@@ -44,9 +45,30 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
                 Profile
             </div>
             <!-- img part aita -->
-            <div class="flex justify-center mt-4">
-                <div class="h-28 w-28 rounded-full bg-[#6C6C6C] flex justify-center items-center">
-                    <img class="h-[6.5rem] w-[6.5rem] rounded-full" src="./Img/Teacher card photos/user.png" alt="" />
+            <div class=" flex justify-center mt-4">
+                <div class="group/imgOverlay h-28 w-28 rounded-full bg-[#6C6C6C] flex justify-center items-center relative">
+                    <img class=" h-[6.5rem] w-[6.5rem] rounded-full" src="
+                    <?php 
+                    if(mysqli_num_rows($profileRes)==0){
+                        echo "./Img/Teacher card photos/user.png";
+                    }
+                    else{
+                        $profileArr = mysqli_fetch_array($profileRes);
+                        echo $profileArr['profileImgPath'];
+                    }
+                    
+                    ?>
+                    
+                    " alt="" />
+                    <?php 
+                    if($sessionTeacher){
+                    ?>
+
+                    <label for="upload-dp"><div class="group-hover/imgOverlay:block hidden  bg-black/30  h-28 w-28 rounded-full absolute top-0 left-0 text-white text-center py-12 font-semibold cursor-pointer "><i class="fa-solid fa-cloud-arrow-up"></i> Upload</div></label>
+                    <input class="hidden" type="file" name="upload-dp" id="upload-dp">
+                <?php 
+                }
+                ?>  
                 </div>
             </div>
             <!-- img part aita -->
@@ -74,7 +96,7 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
                 <img src="./Img/Rectangle 3.png" alt="" />
                 <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
                     <div class="text-black font-sans font-light tracking-wide text-2xl">
-                        <?php echo $row['experience'];?>+
+                        <?php if($row['experience']!="Not Yet"){echo $row['experience'];}else{echo "1";}?>+
                     </div>
                     <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4">
                         Years of experience
@@ -90,7 +112,7 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
             <!-- rest of the information -->
             <!-- contact button and location -->
             <div class="flex justify-center items-center mt-8 flex-col">
-                <a href="<?php if($sessionTeacher) echo "#"; ?>"><button class="h-10 w-[13rem] bg-[#3461FF] flex justify-center items-center rounded-xl text-white font-sans font-light tracking-wide text-lg capitalize">
+                <a href="<?php if($sessionTeacher) echo "teacherRegistration.php?updateTeacherProfile=".$sessionTeacherId; ?>"><button class="h-10 w-[13rem] bg-[#3461FF] flex justify-center items-center rounded-xl text-white font-sans font-light tracking-wide text-lg capitalize">
                         <?php 
                         if($sessionTeacher){
                             echo "Edit Profile";
@@ -122,7 +144,7 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
             </div>
 
             <!--todo Element 3(first name & last name) -->
-            <div class="flex w-full justify-between gap-8">
+            <div class="flex w-full flex-col sm:flex-row justify-between gap-8">
                 <div class="capitalize flex flex-col w-full">
                     <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">First name</label>
                     <input class="capitalize border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10 px-4" type="text" value="<?php echo $row['firstName']; ?>" disabled />
@@ -133,11 +155,11 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
                 </div>
             </div>
 
-            <!--todo Element 4 (qualification) -->
+            <!--todo Element 4 (phoneNumber) -->
             <div class="flex w-full justify-between gap-8">
                 <div class="capitalize flex flex-col w-full">
-                    <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Qualification</label>
-                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10 px-4" value="<?php echo $row['qualification'];?>" type="text" disabled />
+                    <label class="text-black font-sans capitalize leading-4 tracking-tight" for="">Contact Number</label>
+                    <input class="border-2 bg-transparent outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-10 px-4" value="<?php echo $row['phoneNumber'];?>" type="text" disabled />
                 </div>
             </div>
 
@@ -155,12 +177,23 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
             <!--todo Element 7 (line img) -->
             <div class="w-full">
                 <img class="w-full" src="./Img/Rectangle 21.png" alt="" />
+                
             </div>
+            
 
             <!--todo Element 8 (about me section) -->
-            <div class="flex w-full justify-between gap-8 z-10">
+            <div class=" w-full justify-between gap-8 z-10">
+                <?php 
+                if($row['mapLink']!="Not Provided"){
+                ?>
+                <a target="_blank"  href="<?php echo $row['mapLink'];?>" class="w-full capitalize font-medium text-blue-500">
+                    Show location <i class="fa-solid fa-location-dot"></i>
+                </a>
+                <?php 
+                }
+                ?>
                 <div class="capitalize flex flex-col w-full">
-                    <textarea class="border-2 bg-white/50 outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-24 z-10 backdrop-blur-sm" value="" type="text" disabled ><?php echo $row['address'];?></textarea>
+                    <textarea class="border-2 bg-white/50 outline-none rounded-md border-[#E5E5E5] mt-3 w-full h-24 z-10 backdrop-blur-sm p-2" value="" type="text" disabled ><?php echo $row['address'];?></textarea>
                 </div>
             </div>
         </div>
@@ -203,6 +236,54 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
             </table>
         </div>
     </section>
+<!-- gallery area -->
+<div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
+  <div class="-m-1 flex flex-col sm:flex-row flex-wrap md:-m-2">
+    <div class="flex w-full sm:w-1/2 flex-wrap">
+      <div class="w-1/2 p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./Img/banner/banner 1.jpg" />
+      </div>
+      <div class="w-1/2 p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./Img/banner/banner 2.jpg" />
+      </div>
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./Img/banner/banner 3.jpg" />
+      </div>
+    </div>
+    <div class="flex w-full sm:w-1/2 flex-wrap">
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./Img/banner/banner 1.jpg" />
+      </div>
+      <div class="w-1/2 p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./Img/banner/banner 2.jpg" />
+      </div>
+      <div class="w-1/2 p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./Img/banner/banner 3.jpg" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- gallery area -->
+
+
     <!-- //contact us section -->
     <main id="contact-section" class="relative bg-[#f1f1f1] h-auto p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
         <section class="bg-white h-[40rem] w-[90%] rounded-2xl p-2 flex justify-between gap-2 shadow-lg z-10">
