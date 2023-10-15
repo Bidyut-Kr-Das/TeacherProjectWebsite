@@ -19,7 +19,7 @@ if(isset($_SESSION['teacherId'])){
         Home
       </div>
     </a>
-    <a href="teacherProfile.php">
+    <a href="hero.php">
       <div class="hover:underline underline-offset-4 leading-[3rem]">
         Teachers
       </div>

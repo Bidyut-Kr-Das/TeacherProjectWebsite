@@ -81,14 +81,25 @@ include("nav.php");
                   ORDER BY rand()  LIMIT 1";
         $classRes = mysqli_query($connection,$class);
         $classarr = mysqli_fetch_array($classRes);
+        $profilequery = "SELECT * FROM `teacher-profileimage-table` WHERE `teacherId` = '$randTeacherId'";
+        $profileRes = mysqli_query($connection,$profilequery);
 
     ?>
 
-    <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8">
+    <section class=" relative w-96  rounded-2xl shadow-lg border-t-2 border-black/20 py-8 flex flex-col gap-4">
 
       <!-- profile image area with absolute property -->
       <div class="px-4 h-20 w-full p-1 bg-white rounded-full flex ">
-        <img class=" w-[4.5rem] h-[4.5rem] rounded-full" src="./Img/Teacher card photos/user.png" alt="" draggable="false">
+        <img class=" w-[4.5rem] h-[4.5rem] rounded-full" src="<?php 
+                    if(mysqli_num_rows($profileRes)==0){
+                        echo "./Img/Teacher card photos/user.png";
+                    }
+                    else{
+                        $profileArr = mysqli_fetch_array($profileRes);
+                        echo $profileArr['profileImgPath'];
+                    }
+                    
+                    ?>" alt="" draggable="false">
         <span>
           <heading class="capitalize block px-4 font-semibold text-2xl"><?php echo $rowarr['firstName']." ".$rowarr['lastName'];?></heading>
           <!------------------- subject Names -------------------->
@@ -116,7 +127,7 @@ include("nav.php");
 
       </div>
       <!---------------------- connect button --------------------->
-      <a href="teacherProfile.php?teachSuperId=<?php echo $randTeacherId;?>" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Connect</button></a>
+      <a href="teacherProfile.php?teachSuperId=<?php echo $randTeacherId;?>" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12  rounded-full text-white text-lg ">Connect</button></a>
     </section>
     <?php 
     }
@@ -138,7 +149,7 @@ include("nav.php");
       <!--------------- Tags area ---------------------------->
       
       <!---------------------- connect button --------------------->
-      <a href="#" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Explore</button></a>
+      <a href="hero.php" class=""><button class="mx-[5%] w-[90%] bg-[#3461FF] h-12 mt-8 rounded-full text-white text-lg ">Explore</button></a>
       </section>
   </section>
 </main>

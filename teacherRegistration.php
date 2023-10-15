@@ -303,7 +303,21 @@ $res2 = mysqli_query($connection, $query2);
                     <label for="tnc" class="leading-3">I accept the <span class="text-blue-600 font-bold">terms and conditions</span></label>
                 </div>
                 <div class="">
-                    <input id="teacherRegSubBtn" type="submit" class="rounded-3xl bg-blue-600 text-white font-bold h-12 w-full sm:w-60 cursor-pointer " value="Register">
+                    <input id="<?php 
+                    if($updateTeacher){
+                        echo "teacherUpdateSubBtn";
+                    }else{
+                        echo "teacherRegSubBtn";
+                    }
+                    ?>" type="submit" class="rounded-3xl bg-blue-600 text-white font-bold h-12 w-full sm:w-60 cursor-pointer " value="<?php 
+                    if($updateTeacher){
+                        echo "Update";
+                    }
+                    else{
+                        echo "Register";
+                    }
+                    
+                    ?>">
                 </div>
             </div>
 

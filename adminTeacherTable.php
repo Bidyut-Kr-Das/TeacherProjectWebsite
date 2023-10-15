@@ -3,9 +3,19 @@ include("header.php");
 include("connection.php");
 session_start();
 if(!isset($_SESSION['admin'])){
-  @header("location:index.php");
-  exit();
+    @header("location:index.php");
+    exit();
 }
+$limit = 10;
+if(isset($_REQUEST['page'])){
+  $page = $_REQUEST['page'];
+  
+}
+else{
+  $page = 1;
+}
+$offset = ($page-1)*$limit;
+
 ?>
 <header class="">
         <nav
@@ -48,20 +58,20 @@ if(!isset($_SESSION['admin'])){
       </div>
     </nav>
     </header>
-    <main class="mt-16 overflow-auto px-4 w-screen">
+<main class="mt-16 overflow-auto px-4 w-screen">
 
 
         <?php
         // echo $_SESSION['admin']; 
-        $query = "SELECT * FROM `temp-teachertable` ORDER BY `id`";
+        $query = "SELECT * FROM `teacher-table` LIMIT {$offset},{$limit}";
         $res = mysqli_query($connection,$query);
         if(mysqli_num_rows($res)==0){
             ?>
-        <div class="text-4xl font-semibold capitalize my-4 text-center">No Data to review</div>
+        <div class="text-4xl font-semibold capitalize my-4 text-center">No Teachers yet!!</div>
             <?php
         }else{
         ?>
-        <h1 class="text-3xl capitalize text-center w-full">Recently Updated</h1>
+        <h1 class="text-3xl capitalize text-center w-full">All Teachers</h1>
     <table class="w-[64rem] lg:w-full">
       <tr class="">
         <th class="border-2 border-black/50">First Name</th>
@@ -91,8 +101,8 @@ if(!isset($_SESSION['admin'])){
             <td class="border-2 border-black/50 text-center px-4 py-1"><?php echo $rowarr['experience']; ?></td>
             <td class="border-2 border-black/50 text-center px-4 py-1"><?php echo $rowarr['qualification']; ?></td>
             <td class="border-2 border-black/50 text-center px-4 py-1"><?php echo $rowarr['locality']; ?></td>
-            <td class="h-12 w-28 border-2 border-black/50 text-center px-4 overflow-x-hidden overflow-y-auto"><div class="overflow-auto h-12"><?php echo $rowarr['address']; ?></div></td>
-            <td class="border-2 border-black/50 text-center px-4 py-1"><a class="hover:bg-emerald-500 bg-green-500 px-4 py-1 text-white font-medium rounded-md" href="updateChanges.php?teacherChangeId=<?php echo $rowarr['teacherId']; ?>">Accept</a> | <a class="hover:bg-red-500 bg-rose-500 px-4 py-1 text-white font-medium rounded-md" href="rejectChanges.php?teacherChangeId=<?php echo $rowarr['teacherId']; ?>">Reject</a></td>
+            <td class="h-12 w-28 border-2 border-black/50 text-center px-4 overflow-x-hidden overflow-y-auto"><div class="overflow-y-auto h-12 overflow-x-hidden"><?php echo $rowarr['address']; ?></div></td>
+            <td class="border-2 border-black/50 text-center px-4 py-1"><a class="hover:bg-red-500 bg-rose-500 px-4 py-1 text-white font-medium rounded-md cursor-pointer" onclick="confirmDelete(<?php echo $rowarr['id']; ?>)">Delete</a></td>
         </tr>
         </tbody>
         <?php
@@ -101,6 +111,31 @@ if(!isset($_SESSION['admin'])){
     </table>
     <?php 
         }
+        $query0 = "SELECT * FROM `teacher-table` ORDER BY `id`";
+        $res0 = mysqli_query($connection,$query0);
+        $totalRows = mysqli_num_rows($res0);
+        // echo $totalRows;
+        if($totalRows>0){
+          
+          $pageNo = ceil($totalRows/$limit);
+    ?>
+    <section class="w-full relative my-8">
+      <ul  class="sticky flex gap-6 justify-center" >
+        <?php 
+        for ($i=1; $i <= $pageNo; $i++) { 
+        ?>
+        <li class="h-8 w-8 bg-blue-500 text-white text-center leading-[2rem] rounded-md" ><a class="h-full w-full" href="adminTeacherTable.php?page=<?php echo $i;?>"><?php echo $i;?></a></li>
+        <?php 
+        }
+        ?>
+        
+        
+  
+      </ul>
+    </section>
+    <?php 
+    }
+  
     ?>
     </main>
 

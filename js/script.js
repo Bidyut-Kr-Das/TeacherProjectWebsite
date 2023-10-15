@@ -127,6 +127,105 @@ const passwordCheck = () => {
   return true;
 };
 
+const confirmDelete = (value) =>{
+  let response ='Deleting tearchers can not be undone!\nDo you want to proceed?';
+  if(confirm(response)===true){
+    window.location.href = "deleteTeachers.php?teacherDeleteId="+value;
+  }
+  else{
+    return false;
+  }
+}
+
+let localityToggler = document.querySelector("#localityToggler");
+try{
+  localityToggler.addEventListener("click",()=>{
+    let localitySelector = document.querySelector('#localityDropdown');
+    let localityArrow = document.querySelector('#localityArrow');
+  
+    if(localitySelector.classList.contains("hidden")){
+      localitySelector.classList.remove("hidden");
+      localityArrow.classList.remove('fa-chevron-down');
+      localityArrow.classList.add('fa-chevron-up');
+    }else{
+      localitySelector.classList.add("hidden");
+      localityArrow.classList.add('fa-chevron-down');
+      localityArrow.classList.remove('fa-chevron-up');
+    }
+  });
+}
+catch(error){
+  console.log("Can not find locality button!(hero.php)");
+}
+
+let classToggler = document.querySelector("#classToggler");
+try{
+  classToggler.addEventListener("click",()=>{
+    let classSelector = document.querySelector('#classDropdown');
+    let classArrow = document.querySelector('#classArrow');
+  
+    if(classSelector.classList.contains("hidden")){
+      classSelector.classList.remove("hidden");
+      classArrow.classList.remove('fa-chevron-down');
+      classArrow.classList.add('fa-chevron-up');
+    }else{
+      classSelector.classList.add("hidden");
+      classArrow.classList.add('fa-chevron-down');
+      classArrow.classList.remove('fa-chevron-up');
+    }
+  });
+}catch(error){
+  console.log("Can not find class button!(hero.php)");
+}
+let subjectToggler = document.querySelector("#subjectToggler");
+try{
+  subjectToggler.addEventListener("click",()=>{
+    let subjectSelector = document.querySelector('#subjectDropdown');
+    let subjectArrow = document.querySelector('#subjectArrow');
+    if(subjectSelector.classList.contains("hidden")){
+      subjectSelector.classList.remove("hidden");
+      subjectArrow.classList.remove('fa-chevron-down');
+      subjectArrow.classList.add('fa-chevron-up');
+    }else{
+      subjectSelector.classList.add("hidden");
+      subjectArrow.classList.add('fa-chevron-down');
+      subjectArrow.classList.remove('fa-chevron-up');
+    }
+  });
+}catch(error){
+  console.log("Can not find subject button(hero.php)");
+}
+
+let openFilter = document.querySelector("#openFilter");
+let closeFilter = document.querySelector("#closeFilter");
+let filterArea = document.querySelector('#filterArea');
+try{
+  openFilter.addEventListener("click",()=>{
+    filterArea.classList.replace("-left-96","left-0");
+  })
+  closeFilter.addEventListener("click",()=>{
+    filterArea.classList.replace("left-0","-left-96");
+  })
+}
+catch(error){
+  console.log("Error handled!");
+}
+
+const filterValidate = () =>{
+  let classRadio = document.querySelector('input[name="list-class"]:checked');
+  let localityRadio = document.querySelector('input[name="list-locality"]:checked');
+  let subjectRadio = document.querySelector('input[name="list-subject"]:checked');
+  if(classRadio!=null||localityRadio!=null||subjectRadio!=null){
+    return true;
+  }
+  else{
+    popUp("Please select atleast one field");
+    return false;
+  }
+
+}
+
+
 //ajax php calling
 $(document).ready(() => {
   //contact us form
@@ -322,14 +421,146 @@ $(document).ready(() => {
     // console.log(subjarr);
   });
 
+  $("#teacherUpdateSubBtn").on("click", (event) => {
+    event.preventDefault();
+
+    let Fnameget = $("#firstName").val();
+    let Lnameget = $("#lastName").val();
+    let phoneNumberGet = $("#phoneNumber").val();
+    let emailget = $("#email").val();
+    let genderget = $("#gender").val();
+    let ageGet = $("#age").val();
+    let experienceGet = $("#experience").val();
+    let qualificationGet = $("#qualification").val();
+    let localityGet = $("#locality").val();
+    localityGet = localityGet.toString().toLowerCase();
+    console.log(localityGet)
+    let mapLinkGet = $("#googleMapLink").val();
+    let addressGet = $("#address").val();
+    let stateGet = $("#state").val();
+
+    if (Fnameget === "") {
+      popUp("First name can not empty!");
+      return false;
+    } else if (Lnameget === "") {
+      popUp("Last name can not empty!");
+      return false;
+    } else if (phoneNumberGet === "") {
+      popUp("Phone Number can not empty!");
+      return false;
+    } else if (phoneNumberGet.length<10) {
+      popUp("Enter valid phone number");
+      return false;
+    } else if (
+      emailget === "" ||
+      !emailget.includes("@") ||
+      !emailget.includes(".")
+    ) {
+      popUp("Please enter a valid email!");
+      return false;
+    } else if (genderget === "") {
+      popUp("Select a gender");
+      return false;
+    } else if (genderget === "") {
+      popUp("Select a gender");
+      return false;
+    } else if (ageGet < 18) {
+      popUp("Age must be greater than 18!");
+      return false;
+    } else if (ageGet > 80) {
+      popUp("Age can not be greater than 80!");
+      return false;
+    } else if (qualificationGet === "") {
+      popUp("Provide your qualification!");
+      return false;
+    } else if (addressGet === "") {
+      popUp("Please enter a valid address!");
+      return false;
+    } else if (stateGet === "") {
+      popUp("Please enter a valid state!");
+      return false;
+    } else if (localityGet === "") {
+      popUp("Please provide locality!");
+      return false;
+    } else if (experienceGet === "") {
+      experienceGet = "Not Yet";
+    } else if (mapLinkGet === "") {
+      mapLinkGet = "Not Provided";
+    } else console.log("hehe");
+
+    //? arrays to store the subjects and classes
+    const subjarr = [];
+    const classarr = [];
+
+    //? this for each loop pushes ids of selected subject into subjarr array
+    $("#subjects[name='subjects']").each((index, element) => {
+      // console.log($(element).val());
+      subjarr.push($(element).val());
+    });
+
+    //? this for each loop pushes ids of selected classes into class array
+    $("#classes[name='classes']").each((index, element) => {
+      classarr.push($(element).val());
+    });
+
+    // console.log(subjectArray);
+    $.ajax({
+      url: "functions/teacherUpdate.php",
+      type: "POST",
+      data: {
+        fName: Fnameget,
+        lName: Lnameget,
+        phoneNumber: phoneNumberGet,
+        email: emailget,
+        gender: genderget,
+        age: ageGet,
+        experience: experienceGet,
+        qualification: qualificationGet,
+        locality:localityGet,
+        mapLink:mapLinkGet, 
+        address: addressGet,
+        state: stateGet,
+        subjectArray: JSON.stringify(subjarr),
+        classArray: JSON.stringify(classarr),
+      },
+      success: (res) => {
+        console.log(res);
+
+        if (res === "email") {
+          popUp("Email id is already registered!");
+          return false;
+        } else if (res === "phoneNumber") {
+          popUp("Phone number is already registered!");
+          return false;
+        }
+
+        $("#firstName").val("");
+        $("#lastName").val("");
+        $("#phoneNumber").val("");
+        $("#email").val("");
+        $("#gender").val("");
+        $("#age").val("");
+        $("#experience").val("");
+        $("#qualification").val("");
+        $("#googleMapLink").val("");
+        $("#address").val("");
+        $("#state").val("");
+        window.location.href =
+          "";
+      },
+    });
+    // console.log(subjarr);
+  });
+
   $('#showTable').on("click",()=>{
     $('#tableArea').show();
   });
   $(document).on("click",(event)=>{
-    console.log(event)
+    // console.log(event)
     if(event.target.id!=='tableSection'&& event.target.id!=='showTable'){
       $('#tableArea').hide();
     }
+    
   })
 
   $('#Signin-btn').on("click",(e)=>{
