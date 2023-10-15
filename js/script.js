@@ -605,6 +605,7 @@ $(document).ready(() => {
         processData:false,
         success:(res)=>{
           popUp(res);
+          
         }
       })
       // console.log(formData);
@@ -612,8 +613,32 @@ $(document).ready(() => {
     else{
       console.log("file is not selected");
     }
-
   });
+
+  
+  //banner upload
+  $('#banner-upload').on("change",(e)=>{
+    if(e.target.files.length>0){
+      let formData2 = new FormData();
+      formData2.append('banner-upload',e.target.files[0]);
+      $.ajax({
+        url:"uploadBannerImage.php",
+        type:"POST",
+        data:formData2,
+        contentType:false,
+        processData:false,
+        success:(res)=>{
+          popUp(res);
+          
+        }
+      })
+      // console.log(formData);
+    }
+    else{
+      console.log("file is not selected");
+    }
+  });
+  
 
 
 });

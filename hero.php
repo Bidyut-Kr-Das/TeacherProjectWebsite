@@ -68,6 +68,7 @@ if(isset($_REQUEST['filter'])){
     }
     @header("location:".$location);
 }
+// echo $teachers;
 
 ?>
 <!-- filter section -->
@@ -243,9 +244,11 @@ if(isset($_REQUEST['filter'])){
 <section class="bg-[#f1f1f1] w-full relative py-8">
       <ul  class="sticky flex gap-6 justify-center" >
         <?php 
-            
-            
-            $pageNumber = ceil($totalRows/$limit);
+        $totalRows = "SELECT * FROM `teacher-table`";
+        $totalRes = mysqli_query($connection,$totalRows);
+        $totalRows = mysqli_num_rows($totalRes);
+        $pageNumber = ceil($totalRows/$limit);
+        // echo $totalRows;
         for ($i=1; $i <= $pageNumber; $i++) { 
         ?>
         <li class="h-8 w-8 bg-blue-500 text-white text-center leading-[2rem] rounded-md" ><a class="h-full w-full" href="hero.php?page=<?php echo $i;?>"><?php echo $i;?></a></li>
@@ -257,6 +260,6 @@ if(isset($_REQUEST['filter'])){
     
 <?php
 // echo $_SERVER['HTTP_HOST']; 
-echo $_SERVER['SCRIPT_NAME']; 
+// echo $_SERVER['SCRIPT_NAME']; 
 include("footer.php");
 ?>

@@ -237,6 +237,19 @@ $profileRes = mysqli_query($connection,$profilequery);
         </div>
     </section>
 <!-- gallery area -->
+<?php 
+$banners = array("./Img/banner/banner 1.jpg","./Img/banner/banner 2.jpg","./Img/banner/banner 3.jpg","./Img/banner/banner 1.jpg","./Img/banner/banner 2.jpg","./Img/banner/banner 3.jpg");
+$bannerSql = "SELECT * FROM `teacher-bannerimg-table` WHERE `teacherId` = '$teacherId'";
+$bannerRes = mysqli_query($connection,$bannerSql);
+$i = 0;
+if(mysqli_num_rows($bannerRes)>0){
+    while($bannerArr = mysqli_fetch_array($bannerRes)){
+        $banners[$i] = strval($bannerArr['bannerImgPath']);
+        $i++;
+    }
+}
+
+?>
 <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
   <div class="-m-1 flex flex-col sm:flex-row flex-wrap md:-m-2">
     <div class="flex w-full sm:w-1/2 flex-wrap">
@@ -244,19 +257,19 @@ $profileRes = mysqli_query($connection,$profilequery);
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
-          src="./Img/banner/banner 1.jpg" />
+          src="<?php echo $banners[0];?>" />
       </div>
       <div class="w-1/2 p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
-          src="./Img/banner/banner 2.jpg" />
+          src="<?php echo $banners[1];?>" />
       </div>
       <div class="w-full p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
-          src="./Img/banner/banner 3.jpg" />
+          src="<?php echo $banners[2];?>" />
       </div>
     </div>
     <div class="flex w-full sm:w-1/2 flex-wrap">
@@ -264,22 +277,30 @@ $profileRes = mysqli_query($connection,$profilequery);
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
-          src="./Img/banner/banner 1.jpg" />
+          src="<?php echo $banners[3];?>" />
       </div>
       <div class="w-1/2 p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
-          src="./Img/banner/banner 2.jpg" />
+          src="<?php echo $banners[4];?>" />
       </div>
       <div class="w-1/2 p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
-          src="./Img/banner/banner 3.jpg" />
+          src="<?php echo $banners[5];?>" />
       </div>
     </div>
   </div>
+  <?php 
+  if($sessionTeacher){
+  ?>
+  <input type="file" name="banner-upload" id="banner-upload" class="hidden">
+  <label for="banner-upload" class=" block bg-blue-400 text-white text-lg font-medium h-10 w-36 px-2 mt-4 rounded-md leading-10 cursor-pointer">Upload Banner</label>
+  <?php 
+  }
+  ?>
 </div>
 <!-- gallery area -->
 
