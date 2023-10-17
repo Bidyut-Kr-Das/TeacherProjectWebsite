@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2023 at 01:59 PM
+-- Generation Time: Oct 17, 2023 at 04:41 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -93,6 +93,16 @@ CREATE TABLE `teacher-bannerimg-table` (
   `teacherId` int(11) NOT NULL,
   `bannerImgPath` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teacher-bannerimg-table`
+--
+
+INSERT INTO `teacher-bannerimg-table` (`id`, `teacherId`, `bannerImgPath`) VALUES
+(1, 7, './uploads/2138237510.png'),
+(2, 7, './uploads/1201077147.jpg'),
+(3, 7, './uploads/636397738.jpg'),
+(4, 7, './uploads/1876362720.jpg');
 
 -- --------------------------------------------------------
 
@@ -332,7 +342,7 @@ ALTER TABLE `subject-table`
 -- AUTO_INCREMENT for table `teacher-bannerimg-table`
 --
 ALTER TABLE `teacher-bannerimg-table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `teacher-cls-subj`
