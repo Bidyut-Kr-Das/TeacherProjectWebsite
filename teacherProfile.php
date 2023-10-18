@@ -83,19 +83,19 @@ $profileRes = mysqli_query($connection,$profilequery);
             </div>
             <!-- name and work of Teacher -->
             <!-- rest of the information -->
-            <div class="flex justify-evenly mt-">
+            <div class="flex justify-evenly">
                 <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
-                    <div class="text-black font-sans font-light tracking-wide
+                    <div class="text-black font-sans font-light h-8 w-[8rem] 
                      ">
                         Classes-Subjects
                     </div>
-                    <div class="text-[#6C6C6C] font-sans font-extralight text-lg">
+                    <div class="text-[#6C6C6C] font-sans font-extralight text-lg ">
                         <button id="showTable" class="hover:underline underline-offset-4">Show table</button>
                     </div>
                 </div>
                 <img src="./Img/Rectangle 3.png" alt="" />
                 <div class="h-[6.5rem] w-[8rem] flex justify-center items-center flex-col">
-                    <div class="text-black font-sans font-light tracking-wide text-2xl">
+                    <div class="text-black font-sans font-light tracking-wide text-2xl h-8">
                         <?php if($row['experience']!="Not Yet"){echo $row['experience'];}else{echo "1";}?>+
                     </div>
                     <div class="text-[#6C6C6C] font-sans font-extralight text-base text-center capitalize leading-4">
@@ -132,7 +132,7 @@ $profileRes = mysqli_query($connection,$profilequery);
 
         <!-- h-[35rem] w-[40rem] -->
         <!-- right part -->
-        <div class="h-full w-full flex flex-col gap-7 px-16 relative 
+        <div class="h-full w-full flex flex-col gap-7 px-2 sm:px-16 relative 
             border-l-2 border-black/30
         ">
             <!--todo Element 1 -->
@@ -204,8 +204,8 @@ $profileRes = mysqli_query($connection,$profilequery);
 
     <!--* middle part(two images)  -->
     <div class="w-full h-96 justify-between relative">
-        <img class="absolute bottom-8 h-[30rem] left-0" src="./Img/profilepage/profileImage2.svg" alt="" />
-        <img class="absolute bottom-20 h-[30rem] right-0" src="./Img/profilepage/profileImage1.svg" alt="" />
+        <img class="absolute bottom-8 h-[30rem] w-[10rem] sm:w-auto left-0" src="./Img/profilepage/profileImage2.svg" alt="" />
+        <img class="absolute bottom-20 h-[30rem] w-[10rem] sm:w-auto right-0" src="./Img/profilepage/profileImage1.svg" alt="" />
     </div>
 
     <!-- //table -->
@@ -253,19 +253,19 @@ if(mysqli_num_rows($bannerRes)>0){
 <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
   <div class="-m-1 flex flex-col sm:flex-row flex-wrap md:-m-2">
     <div class="flex w-full sm:w-1/2 flex-wrap">
-      <div class="w-1/2 p-1 md:p-2">
+      <div class="h-[15rem] w-screen sm:w-1/2 p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
           src="<?php echo $banners[0];?>" />
       </div>
-      <div class="w-1/2 p-1 md:p-2">
+      <div class="h-[15rem] w-screen sm:w-1/2 p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
           src="<?php echo $banners[1];?>" />
       </div>
-      <div class="w-full p-1 md:p-2">
+      <div class="h-[15rem] w-screen sm:h-[20rem] sm:w-full p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
@@ -273,19 +273,19 @@ if(mysqli_num_rows($bannerRes)>0){
       </div>
     </div>
     <div class="flex w-full sm:w-1/2 flex-wrap">
-      <div class="w-full p-1 md:p-2">
+      <div class="h-[15rem] w-screen sm:h-[20rem] sm:w-full p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
           src="<?php echo $banners[3];?>" />
       </div>
-      <div class="w-1/2 p-1 md:p-2">
+      <div class="h-[15rem] w-screen sm:w-1/2 p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
           src="<?php echo $banners[4];?>" />
       </div>
-      <div class="w-1/2 p-1 md:p-2">
+      <div class="h-[15rem] w-screen sm:w-1/2 p-1 md:p-2">
         <img
           alt="gallery"
           class="block h-full w-full rounded-lg object-cover object-center"
