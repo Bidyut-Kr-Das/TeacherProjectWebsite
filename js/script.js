@@ -116,6 +116,8 @@ const deleteThis = (y) => {
   $(y).parent().remove();
 };
 
+
+
 const passwordCheck = () => {
   let password = $("#password").val();
   let confpassword = $("#confpassword").val();
@@ -228,6 +230,34 @@ const filterValidate = () =>{
 
 //ajax php calling
 $(document).ready(() => {
+
+  $('.deleteBanner').on("click",(event)=>{
+
+    let confirmRes = "The banner will be deleted permanently\n Do you want to proceed?";
+    if(confirm(confirmRes)===false){
+      return false;
+    }
+
+    let a = event.target.closest("[data-bannerid]");
+    let bannerIdget = a.dataset.bannerid;
+    let bannerPathGet = a.dataset.path;
+    console.log("Deleting banner with id"+bannerIdget);
+
+    // console.log(bannerIdget);
+    // console.log(bannerPathGet);
+    $.ajax({
+      url:"deleteBannerImage.php",
+      type:"POST",
+      data:{
+        bannerId:bannerIdget,
+        path:bannerPathGet
+      },
+      success:(res)=>{
+        popUp(res);
+      }
+    })
+  })
+
   //contact us form
   $(".contact-form-submit-btn").on("click", (e) => {
     e.preventDefault();

@@ -21,13 +21,16 @@ if($_FILES['upload-dp']['name']!=''){
                                                                        `profileImgPath` = '$path'";    
             }
             else{
+                $arr = mysqli_fetch_array($res);
+                $oldpath = $arr['profileImgPath'];
+                unlink($oldpath);
                 $query = "UPDATE `teacher-profileimage-table` SET `profileImgPath` = '$path' WHERE `teacherId` = '$teacherId' ";
             }
             $res = mysqli_query($connection,$query);
             echo "Image uploaded successfully";
-    }
+        }
         else{
-            echo "Check your internet :)";
+            echo "Image crashed!";
         }
     }
     

@@ -315,17 +315,17 @@ include("nav.php");
 <!-- ending of Faq section -->
 
 <!-- starting of contact us section -->
-<main id="contact-section" class="relative bg-[#f1f1f1] h-auto p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
-  <section class="bg-white h-[40rem] w-[90%] rounded-2xl p-2 flex justify-between gap-2 shadow-lg z-10">
+<main id="contact-section" class="relative bg-[#f1f1f1] h-auto p-0 lg:p-20 pt-32 w-full flex justify-center items-center overflow-hidden">
+  <section class="bg-white h-auto lg:h-[40rem] w-full lg:w-[90%] rounded-2xl p-2 flex flex-col lg:flex-row justify-between gap-2 shadow-lg z-10">
 
     <!-- This is left section of contact area -->
-    <div class="relative bg-black rounded-2xl h-full w-2/5 pl-8 pt-12 overflow-hidden">
-      <heading class="text-4xl font-semibold text-white">Contact Information</heading>
-      <p class="text-white/50 mt-2">Say something to start a live chat!</p>
+    <div class="relative bg-black rounded-2xl h-full w-full lg:w-2/5 p-2 lg:pl-8 pt-12 overflow-hidden">
+      <heading class="block text-4xl font-semibold text-white text-center w-full lg:text-left">Contact Information</heading>
+      <p class="text-white/50 mt-2 block text-center lg:text-left">Say something to start a live chat!</p>
       <section class="mt-20 text-white flex flex-col gap-8">
-        <span class="flex gap-8 font-poppins text-lg"><img src="./Img/ui-buttons/bxs_phone-call.svg" alt="">+91 1234567890</span>
-        <span class="flex gap-8 font-poppins text-lg"><img src="./Img/ui-buttons/ic_sharp-email.svg" alt="">demo@email.com</span>
-        <span class="flex gap-8 font-poppins text-lg"><img src="./Img/ui-buttons/carbon_location-filled.svg" alt="">132 Dartmouth Street Boston, Massachusetts 02156 United States</span>
+        <span class="flex-col lg:flex-row text-center lg:text-left mx-auto lg:mx-0 flex gap-4 lg:gap-8 font-poppins text-lg justify-center lg:justify-start lg:items-start items-center "><img class="h-6 w-6" src="./Img/ui-buttons/bxs_phone-call.svg" alt="">+91 1234567890</span>
+        <span class="flex-col lg:flex-row text-center lg:text-left mx-auto lg:mx-0 flex gap-4 lg:gap-8 font-poppins text-lg justify-center lg:justify-start lg:items-start items-center "><img class="h-6 w-6" src="./Img/ui-buttons/ic_sharp-email.svg" alt="">demo@email.com</span>
+        <span class="flex-col lg:flex-row text-center lg:text-left mx-auto lg:mx-0 flex gap-4 lg:gap-8 font-poppins text-lg justify-center lg:justify-start lg:items-start items-center "><img class="h-6 w-6" src="./Img/ui-buttons/carbon_location-filled.svg" alt="">132 Dartmouth Street Boston, Massachusetts 02156 United States</span>
       </section>
 
       <!-- 2 circle div -->
@@ -333,49 +333,62 @@ include("nav.php");
       <div class="bg-white/40 absolute bottom-16 right-16 h-40 w-40 rounded-full"></div>
 
       <!-- social icons section -->
-      <section class="mt-40 flex gap-8">
+      <section class="mt-40 flex gap-8 mx-auto lg:mx-0 justify-center ">
         <a href="#"><img src="./Img/ui-buttons/twitter.svg" alt=""></a>
         <a href="#"><img src="./Img/ui-buttons/insta.svg" alt=""></a>
         <a href="#"><img src="./Img/ui-buttons/Facebook.svg" alt=""></a>
       </section>
     </div>
     <!-- This is right section of contact area -->
-    <div class="relative rounded-2xl h-full w-3/5 px-8 pt-12">
+    <div class="relative rounded-2xl h-full w-full lg:w-3/5 px-8 pt-12">
       <form class="flex flex-col gap-16 font-poppins" action="">
-        <section class="flex justify-evenly gap-12">
-          <span class="w-1/2 flex flex-col gap-2">
+        <section class="flex sm:flex-row flex-col justify-evenly gap-12">
+          <span class="w-full sm:w-1/2 flex flex-col gap-2">
             <label for="FName">First Name</label>
             <input type="text" id="FName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
           </span>
-          <span class="w-1/2 flex flex-col gap-2">
+          <span class="w-full sm:w-1/2 flex flex-col gap-2">
             <label for="LName">Last Name</label>
             <input type="text" id="LName" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
           </span>
         </section>
-        <section class="flex justify-evenly gap-12">
-          <span class="w-1/2 flex flex-col gap-2">
+        <section class="flex flex-col sm:flex-row justify-evenly gap-12">
+          <span class="w-full sm:w-1/2 flex flex-col gap-2">
             <label for="email">Email</label>
             <input type="text" id="email" class="border-b-2 border-t-0 border-x-0 border-black/50 !outline-none w-full text-black/50" required autocomplete="off">
           </span>
-          <span class="w-1/2 flex flex-col gap-2">
+          <span class="w-full sm:w-1/2 flex flex-col gap-2">
             <label for="Pnumber">Phone Number</label>
             <input type="number" id="Pnumber" class="border-b-2 border-t-0 border-x-0 border-black/50 outline-none w-full text-black/50" required autocomplete="off">
           </span>
         </section>
         <section>
           <heading class="text-black text-xl font-semibold">Select Subject?</heading>
-          <div class="mt-4">
-            <input type="radio" class="" name="subjectContact" id="ginquiry" value="ginquiry" required>
-            <label for="ginquiry">General inquiry</label>
-            <input type="radio" class="ml-8" name="subjectContact" id="refund" value="refund" required>
-            <label for="refund">Refund</label>
-            <input type="radio" class="ml-8" name="subjectContact" id="working" value="working" required>
-            <label for="working">How it works?</label>
-            <input type="radio" class="ml-8" name="subjectContact" id="Others" value="Others" required>
-            <label for="Others">Others</label>
+          <div class="mt-4 gap-12 flex lg:flex-row flex-col">
+            <span class="flex flex-col gap-4" >
+              <span class="flex gap-2" >
+                <input type="radio" class="" name="subjectContact" id="ginquiry" value="ginquiry" required>
+                <label for="ginquiry">General inquiry</label>
+              </span>
+              <span class="flex gap-2" >
+                <input type="radio" class="" name="subjectContact" id="refund" value="refund" required>
+                <label for="refund">Refund</label>
+              </span>
+            </span>
+            <span class="flex flex-col gap-4" >
+              <span class="flex gap-2" >
+                
+                <input type="radio" class="" name="subjectContact" id="working" value="working" required>
+                <label for="working">How it works?</label>
+              </span>
+              <span class="flex gap-2" >
+                <input type="radio" class="" name="subjectContact" id="Others" value="Others" required>
+                <label for="Others">Others</label>
+              </span>
+            </span>
           </div>
         </section>
-        <span class="w-full flex flex-col gap-2">
+        <span class="w-full flex flex-col gap-2 -mt-10">
           <label for="textBox">Your message</label>
           <input type="text" id="textBox" class="border-b-2 border-black/50 outline-none w-full text-black/50" required>
         </span>
@@ -392,32 +405,32 @@ include("nav.php");
 <!-- footer section start -->
 <footer class="relative bg-gradient-to-r from-[#3461FF] via-[#3461FF] to-[#6B88EF] w-full h-auto overflow-hidden">
   <img class="absolute top-0 left-0 z-0 w-screen mt-24" src="./Img/ui-buttons/Rectangle 207.svg" alt="">
-  <section class="relative z-10 flex justify-between px-12 py-32">
+  <section class="relative z-10 flex justify-between px-8 lg:px-12 py-32">
     <!-- this is the left section area of the footer -->
     <div class="z-10 flex  flex-col items-center w-[30%] gap-12">
       <img class="mt-24 w-52 relative z-10" src="./Img/Logo/Mentor Mosaic-footer-logo.svg" alt="">
-      <section class="flex gap-16 z-10">
+      <section class="flex gap-2 lg:gap-16 z-10">
         <a href="#"><img src="./Img/ui-buttons/twitter.svg" alt=""></a>
         <a href="#"><img src="./Img/ui-buttons/insta.svg" alt=""></a>
         <a href="#"><img src="./Img/ui-buttons/Facebook.svg" alt=""></a>
       </section>
-      <button class="h-12 bg-white w-52 rounded-full">Contact Us</button>
+      <button class="h-8 w-28 lg:h-12 bg-white lg:w-52 rounded-full">Contact Us</button>
     </div>
     <!-- this is the right section area of the footer mainly tab area-->
-    <div class="w-[50%] mt-24 flex gap-20">
-      <section class="flex flex-col gap-12">
-        <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Work With Us</a>
+    <div class="w-full lg:w-[50%] mt-24 flex gap-20">
+      <section class="lg:flex hidden  flex-col gap-12">
+        <a href="#" class="  text-white font-semibold text-xl hover:underline underline-offset-4">Work With Us</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Advertise With Us</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Support Us</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Business Advices</a>
       </section>
-      <section class="flex flex-col gap-12">
+      <section class="lg:flex hidden  flex-col gap-12 ">
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Private Coaching</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Our Work</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Our Commitment</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Our Team</a>
       </section>
-      <section class="flex flex-col gap-12">
+      <section class="flex md:flex-row lg:flex-col lg:justify-normal justify-between flex-col  gap-12 w-full lg:text-left text-center lg:items-start items-center px-8 lg:px-0">
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">About Us</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">FAQs</a>
         <a href="#" class="text-white font-semibold text-xl hover:underline underline-offset-4">Report a bug</a>
@@ -426,7 +439,7 @@ include("nav.php");
   </section>
 </footer>
 <!-- copyright section -->
-<section class="h-20 full py-8 px-12 bg-black text-white font-medium text-base flex justify-between">
+<section class="h-auto lg:h-20 full py-8 px-12 bg-black text-white font-medium text-base flex lg:flex-row flex-col text-center gap-4 justify-between">
   <span>&copy; 2023 Mentor mosaic, Inc. - All Rights Reserved</span>
   <div class="flex justify-around gap-8">
     <span>Terms Of Use</span>

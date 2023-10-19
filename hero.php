@@ -141,7 +141,7 @@ if(isset($_REQUEST['filter'])){
                     <section class="relative mt-10 select-none ">
                         <h1 id="subjectToggler" class="flex justify-between items-center z-0 cursor-pointer border-2 py-1 px-2 border-[#f1f1f1]" >Subject <i id="subjectArrow" class="fa-solid fa-chevron-down"></i></h1>
                         
-                        <ul id="subjectDropdown" class=" z-10 hidden w-full absolute top-10  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg h-40 overflow-auto">
+                        <ul id="subjectDropdown" class=" z-10 hidden w-full absolute top-10  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg h-28 overflow-auto">
                             <?php 
                         $subjectSql = "SELECT * FROM `subject-table` ORDER BY `id`";
                         $res = mysqli_query($connection,$subjectSql);
