@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2023 at 04:41 PM
+-- Generation Time: Oct 25, 2023 at 04:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -100,9 +100,11 @@ CREATE TABLE `teacher-bannerimg-table` (
 
 INSERT INTO `teacher-bannerimg-table` (`id`, `teacherId`, `bannerImgPath`) VALUES
 (1, 7, './uploads/2138237510.png'),
-(2, 7, './uploads/1201077147.jpg'),
 (3, 7, './uploads/636397738.jpg'),
-(4, 7, './uploads/1876362720.jpg');
+(5, 7, './uploads/87900670.png'),
+(6, 7, './uploads/1421904199.png'),
+(9, 7, './uploads/1310434713.png'),
+(10, 7, './uploads/1477186454.png');
 
 -- --------------------------------------------------------
 
@@ -168,7 +170,8 @@ INSERT INTO `teacher-profileimage-table` (`id`, `teacherId`, `profileImgPath`) V
 (3, 1, './uploads/508718472.jpg'),
 (4, 2, './uploads/1990172325.jpg'),
 (5, 3, './uploads/1966271404.jpg'),
-(6, 5, './uploads/1463051365.jpg');
+(6, 5, './uploads/1463051365.jpg'),
+(7, 7, './uploads/641319319.png');
 
 -- --------------------------------------------------------
 
@@ -342,7 +345,7 @@ ALTER TABLE `subject-table`
 -- AUTO_INCREMENT for table `teacher-bannerimg-table`
 --
 ALTER TABLE `teacher-bannerimg-table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `teacher-cls-subj`
@@ -354,7 +357,7 @@ ALTER TABLE `teacher-cls-subj`
 -- AUTO_INCREMENT for table `teacher-profileimage-table`
 --
 ALTER TABLE `teacher-profileimage-table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `teacher-table`
