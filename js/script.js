@@ -70,7 +70,7 @@ const scroll = () => {
   counter++;
 };
 //uncomment the below line to activate the carousel of banners
-// const interval = setInterval(scroll, 3000);
+const interval = setInterval(scroll, 3000);
 
 //todo toast pop up function
 const popUp = (messageToast) => {

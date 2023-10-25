@@ -3,26 +3,34 @@
 include("connection.php");
 include("header.php");
 include("nav.php");
+$bannerArray = array('TeacherProjectWebsite\Img\banner\banner 1.jpg','TeacherProjectWebsite\Img\banner\banner 1.jpg','TeacherProjectWebsite\Img\banner\banner 1.jpg');
+
+$bannerSql = "SELECT *  FROM `teacher-bannerimg-table` order by rand() LIMIT 3";
+$bannerRes = mysqli_query($connection,$bannerSql);
+$i = 0;
+while($row = mysqli_fetch_array($bannerRes)){
+  $bannerArray[$i] = $row['bannerImgPath'];
+  $i++;
+}
 ?>
 <!-- navbar end -->
 
 <!-- this is the starting of the main section  -->
 
 <!-- this is the starting of  carousel section -->
-<!-- <main class="h-screen mt-16 w-full relative overflow-x-hidden">
-      <wrapper class="bannerCarousel duration-500 flex absolute top-0 left-0 overflow-hidden">
-        <div class="h-screen w-screen">
-          <img class="w-full h-full" src="../Img/banner/banner 1.jpg" alt="">
-        </div>
-        <div class="h-screen w-screen">
-          <img class="w-full h-full" src="../Img/banner/banner 2.jpg" alt="">
-        </div>
-        <div class="h-screen w-screen">
-          <img class="w-full h-full" src="../Img/banner/banner 3.jpg" alt="">
-        </div>
-      </wrapper>
-
-    </main> -->
+<main class="h-screen mt-16 w-full relative overflow-x-hidden">
+  <wrapper class="bannerCarousel duration-500 flex absolute top-0 left-0 overflow-hidden">
+    <div class="h-screen w-screen">
+      <img class="w-full h-full" src="<?php echo $bannerArray[0];?>" alt="">
+    </div>
+    <div class="h-screen w-screen">
+      <img class="w-full h-full" src="<?php echo $bannerArray[1];?>" alt="">
+    </div>
+    <div class="h-screen w-screen">
+      <img class="w-full h-full" src="<?php echo $bannerArray[2];?>" alt="">
+    </div>
+  </wrapper>
+</main>
 
 
 <!-- this is the ending of  carousel section -->
