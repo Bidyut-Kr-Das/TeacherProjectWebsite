@@ -18,15 +18,15 @@ while($row = mysqli_fetch_array($bannerRes)){
 <!-- this is the starting of the main section  -->
 
 <!-- this is the starting of  carousel section -->
-<main class="h-screen mt-16 w-full relative overflow-x-hidden">
+<main class="h-[calc(100vh-4rem)] mt-16 w-full relative overflow-x-hidden">
   <wrapper class="bannerCarousel duration-500 flex absolute top-0 left-0 overflow-hidden">
-    <div class="h-screen w-screen">
+    <div class="h-[calc(100vh-4rem)] w-screen">
       <img class="w-full h-full" src="<?php echo $bannerArray[0];?>" alt="">
     </div>
-    <div class="h-screen w-screen">
+    <div class="h-[calc(100vh-4rem)] w-screen">
       <img class="w-full h-full" src="<?php echo $bannerArray[1];?>" alt="">
     </div>
-    <div class="h-screen w-screen">
+    <div class="h-[calc(100vh-4rem)] w-screen">
       <img class="w-full h-full" src="<?php echo $bannerArray[2];?>" alt="">
     </div>
   </wrapper>
@@ -35,7 +35,7 @@ while($row = mysqli_fetch_array($bannerRes)){
 
 <!-- this is the ending of  carousel section -->
 <!-- starting of the first section  -->
-<main class="bg-[#f1f1f1] w-auto lg:h-auto flex justify-evenly mt-0 lg:mt-16 relative h-screen ">
+<main class="bg-[#f1f1f1] w-auto lg:h-auto flex justify-evenly mt-0  relative h-screen ">
   <!-- left side div area -->
   <section class="px-5 md:pl-20 lg:w-1/2 py-28 flex flex-col gap-8 z-20 lg:bg-transparent bg-[#f1f1f1]/90 w-screen">
     <!-- main heading area with bold letter and font 2xl -->
@@ -66,8 +66,8 @@ while($row = mysqli_fetch_array($bannerRes)){
     <heading class="">Our Teachers</heading>
     <!-- This section is for button area with left and right button -->
     <section class="md:flex justify-evenly hidden">
-      <img class=" leftSwipeArrow mx-2" src="./Img/ui-buttons/leftArrow.svg" alt="">
-      <img class=" rightSwipeArrow mx-2" src="./Img/ui-buttons/rightArrow.svg" alt="">
+      <img class=" leftSwipeArrow mx-2 cursor-pointer" src="./Img/ui-buttons/leftArrow.svg" alt="">
+      <img class=" rightSwipeArrow mx-2 cursor-pointer" src="./Img/ui-buttons/rightArrow.svg" alt="">
     </section>
   </section>
   <!-- this section is for teacher cards area -->
@@ -124,14 +124,14 @@ while($row = mysqli_fetch_array($bannerRes)){
         <?php 
         if($rowarr['experience']!="Not Yet"){
         ?>
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70"><?php echo $rowarr['experience'];?> years</tag>
+        <tag class="border-black/70 border-2 px-4 py-1 select-none hover:scale-110 duration-300 rounded-full font-medium text-sm text-black/70"><?php echo $rowarr['experience'];?> years</tag>
         <!-- tag 2 is for class -->
         <?php 
         }
         ?>
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70"><?php echo $classarr['className'] ?></tag>
+        <tag class="border-black/70 border-2 px-4 py-1 select-none hover:scale-110 duration-300 rounded-full font-medium text-sm text-black/70"><?php echo $classarr['className'] ?></tag>
         <!-- tag 3 is for degree -->
-        <tag class="border-black/70 border-2 px-2 rounded-full font-medium text-sm text-black/70"><?php echo $rowarr['qualification'];?></tag>
+        <tag class="border-black/70 border-2 px-4 py-1 select-none hover:scale-110 duration-300 rounded-full font-medium text-sm text-black/70"><?php echo $rowarr['qualification'];?></tag>
 
       </div>
       <!---------------------- connect button --------------------->

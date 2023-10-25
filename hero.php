@@ -73,7 +73,7 @@ if(isset($_REQUEST['filter'])){
 ?>
 <!-- filter section -->
 <header class="bg-[#f1f1f1] mt-16" >
-        <button id="openFilter" class="bg-white shadow-md shadow-gray-600 fixed top-16 flex items-center border-t-0 mx-auto sm:mx-0 sm:ml-16 justify-between h-8 w-32 px-4 rounded-br-md rounded-bl-md border-2 border-[#f1f1f1] text-lg z-[1]" >Filter 
+        <button id="openFilter" class="bg-white shadow-md shadow-gray-600 fixed top-20 flex items-center border-t-0 mx-auto sm:mx-0 sm:ml-16 justify-between h-8 w-32 px-4 rounded-md border-2 border-[#f1f1f1] text-lg z-[1]" >Filter 
             <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11 16.88C11.04 17.18 10.94 17.5 10.71 17.71C10.32 18.1 9.68998 18.1 9.29998 17.71L5.28998 13.7C5.05998 13.47 4.95998 13.16 4.99998 12.87V7.75L0.20998 1.62C-0.13002 1.19 -0.0500202 0.56 0.37998 0.22C0.56998 0.08 0.77998 0 0.99998 0H15C15.22 0 15.43 0.08 15.62 0.22C16.05 0.56 16.13 1.19 15.79 1.62L11 7.75V16.88ZM3.03998 2L6.99998 7.06V12.58L8.99998 14.58V7.05L12.96 2H3.03998Z" fill="black"/>
             </svg></button>
@@ -92,7 +92,6 @@ if(isset($_REQUEST['filter'])){
             </section>
             <!-- class drop down -->
                 <form onsubmit="return filterValidate()">
-
                     <section class="relative mt-16 select-none">
                         <h1 id="classToggler" class="z-0 cursor-pointer border-2 flex justify-between py-1 px-2 border-[#f1f1f1] items-center" >Class <i id="classArrow" class="fa-solid fa-chevron-down"></i></h1>
                         <ul id="classDropdown" class=" z-10 hidden w-full absolute top-10  text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg h-40 overflow-auto">
@@ -166,7 +165,8 @@ if(isset($_REQUEST['filter'])){
         </aside>
 </header>
     <!-- card holding container main body  -->
-<main class="bg-[#f1f1f1] pt-10 p-0 sm:px-8 justify-center items-center w-full grid gap-8  xl:grid-cols-3 lg:grid-cols-2 grid-cols-1" >
+<section class="bg-[#f1f1f1] h-screen" >  
+<main class="bg-[#f1f1f1] pt-10 p-0 sm:px-8 justify-center items-center w-full grid gap-8  xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 " >
     <?php
         $resTeachers = mysqli_query($connection,$teachers); 
         $totalRows = mysqli_num_rows($resTeachers);
@@ -251,12 +251,13 @@ if(isset($_REQUEST['filter'])){
         // echo $totalRows;
         for ($i=1; $i <= $pageNumber; $i++) { 
         ?>
-        <li class="h-8 w-8 bg-blue-500 text-white text-center leading-[2rem] rounded-md" ><a class="h-full w-full" href="hero.php?page=<?php echo $i;?>"><?php echo $i;?></a></li>
+        <a class="h-8 w-8" href="hero.php?page=<?php echo $i;?>"><li class="h-full w-full bg-blue-500 text-white text-center leading-[2rem] rounded-md" ><?php echo $i;?></li></a>
         <?php 
         }
         ?>  
       </ul>
     </section>
+    </section> 
     
 <?php
 // echo $_SERVER['HTTP_HOST']; 
