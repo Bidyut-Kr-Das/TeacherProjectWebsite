@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./Img/Logo/Mosaic_Logo-removebg-preview.png" type="image/x-icon">
-    <title>Mentor Mosaic</title>
+    <link rel="icon" href="" type="image/x-icon">
+    <title>Students</title>
     <!-- <link
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"
       rel="stylesheet"

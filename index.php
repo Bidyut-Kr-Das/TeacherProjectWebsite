@@ -18,7 +18,7 @@ while($row = mysqli_fetch_array($bannerRes)){
 <!-- this is the starting of the main section  -->
 
 <!-- this is the starting of  carousel section -->
-<main class="h-[calc(100vh-4rem)] mt-16 w-full relative overflow-x-hidden">
+<!-- <main class="h-[calc(100vh-4rem)] mt-16 w-full relative overflow-x-hidden">
   <wrapper class="bannerCarousel duration-500 flex absolute top-0 left-0 overflow-hidden">
     <div class="h-[calc(100vh-4rem)] w-screen">
       <img class="w-full h-full" src="<?php echo $bannerArray[0];?>" alt="">
@@ -30,7 +30,7 @@ while($row = mysqli_fetch_array($bannerRes)){
       <img class="w-full h-full" src="<?php echo $bannerArray[2];?>" alt="">
     </div>
   </wrapper>
-</main>
+</main> -->
 
 
 <!-- this is the ending of  carousel section -->
@@ -55,7 +55,7 @@ while($row = mysqli_fetch_array($bannerRes)){
   </section>
   <!-- right section of the first area -->
   <section class="lg:w-1/2 w-screen lg:relative absolute top-0 left-0 right-0 mx-auto z-10 lg:z-20">
-    <img src="./Img/first-page-photos/Combined.png" class="lg:my-10 lg:h-4/5 lg:w-4/5 h-screen w-auto mx-auto lg:mx-0 z-10 lg:z-20" alt="" draggable="false">
+    <img src="./Img/first-page-photos/heroImg.svg" class="lg:my-10 lg:h-4/5 lg:w-4/5 h-screen w-auto mx-auto lg:mx-0 z-10 lg:z-20" alt="" draggable="false">
   </section>
 </main>
 <!-- this is the end of first section hero -->
@@ -300,7 +300,7 @@ while($row = mysqli_fetch_array($bannerRes)){
     <!-- this is the left section of the faq -->
     <div class="lg:w-1/2 w-full h-full font-medium text-lg ">
 
-      <section class="h-auto w-full border-t-2 border-b-2 py-5 flex justify-between">How does Mentor Mosaic platform work? <img src="./Img/ui-buttons/addicon.svg" alt="" class="h-10"></section>
+      <section class="h-auto w-full border-t-2 border-b-2 py-5 flex justify-between">How does Students platform work? <img src="./Img/ui-buttons/addicon.svg" alt="" class="h-10"></section>
       <section class="w-full border-t-2 border-b-2 py-5 flex justify-between"> How do you ensure the quality of teachers on your platform? <img src="./Img/ui-buttons/addicon.svg" alt="" class="h-10"></section>
       <section class="w-full border-t-2 border-b-2 py-5 flex justify-between">What subjects and grade levels are covered on your platform? <img src="./Img/ui-buttons/addicon.svg" alt="" class="h-10"></section>
     </div>
@@ -333,7 +333,7 @@ while($row = mysqli_fetch_array($bannerRes)){
       <section class="mt-20 text-white flex flex-col gap-8">
         <span class="flex-col lg:flex-row text-center lg:text-left mx-auto lg:mx-0 flex gap-4 lg:gap-8 font-poppins text-lg justify-center lg:justify-start lg:items-start items-center "><img class="h-6 w-6" src="./Img/ui-buttons/bxs_phone-call.svg" alt="">+91 1234567890</span>
         <span class="flex-col lg:flex-row text-center lg:text-left mx-auto lg:mx-0 flex gap-4 lg:gap-8 font-poppins text-lg justify-center lg:justify-start lg:items-start items-center "><img class="h-6 w-6" src="./Img/ui-buttons/ic_sharp-email.svg" alt="">demo@email.com</span>
-        <span class="flex-col lg:flex-row text-center lg:text-left mx-auto lg:mx-0 flex gap-4 lg:gap-8 font-poppins text-lg justify-center lg:justify-start lg:items-start items-center "><img class="h-6 w-6" src="./Img/ui-buttons/carbon_location-filled.svg" alt="">132 Dartmouth Street Boston, Massachusetts 02156 United States</span>
+        <span class="flex-col lg:flex-row text-center lg:text-left mx-auto lg:mx-0 flex gap-4 lg:gap-8 font-poppins text-lg justify-center lg:justify-start lg:items-start items-center "><img class="h-6 w-6" src="./Img/ui-buttons/carbon_location-filled.svg" alt="">Techno India University, EM-4, EM Block, Sector V, Bidhannagar, Kolkata, West Bengal 700091</span>
       </section>
 
       <!-- 2 circle div -->
@@ -416,7 +416,7 @@ while($row = mysqli_fetch_array($bannerRes)){
   <section class="relative z-10 flex justify-between px-8 lg:px-12 py-32">
     <!-- this is the left section area of the footer -->
     <div class="z-10 flex  flex-col items-center w-[30%] gap-12">
-      <img class="mt-24 w-52 relative z-10" src="./Img/Logo/Mentor Mosaic-footer-logo.svg" alt="">
+      <img class="mt-24 w-52 relative z-10" src="Img\Logo\logo-dark.svg" alt="">
       <section class="flex gap-2 lg:gap-16 z-10">
         <a href="#"><img src="./Img/ui-buttons/twitter.svg" alt=""></a>
         <a href="#"><img src="./Img/ui-buttons/insta.svg" alt=""></a>
@@ -448,7 +448,7 @@ while($row = mysqli_fetch_array($bannerRes)){
 </footer>
 <!-- copyright section -->
 <section class="h-auto lg:h-20 full py-8 px-12 bg-black text-white font-medium text-base flex lg:flex-row flex-col text-center gap-4 justify-between">
-  <span>&copy; 2023 Mentor mosaic, Inc. - All Rights Reserved</span>
+  <span>&copy; 2024 Students, Inc. - All Rights Reserved</span>
   <div class="flex justify-around gap-8">
     <span>Terms Of Use</span>
     <span>Privacy Policy</span>
