@@ -5,9 +5,7 @@ include("connection.php");
 $sessionTeacher = false;
 $teacherId = $_REQUEST['teachSuperId'];
 ?>
-
 <!-- <script>console.log('eyyyyy<?php echo $_SESSION['teacherId'];?>')</script> -->
-
 <?php
 
 
@@ -17,9 +15,6 @@ if (isset($_SESSION['teacherId'])) {
         $sessionTeacher=true;
     }
 }
-
-
-
 
 $query = "SELECT * FROM `teacher-table` WHERE `id` = '$teacherId'";
 $res = mysqli_query($connection, $query);
@@ -32,7 +27,6 @@ $Fullname = $row['firstName'] . " " . $row['lastName'];
 
 $profilequery = "SELECT * FROM `teacher-profileimage-table` WHERE `teacherId` = '$teacherId'";
 $profileRes = mysqli_query($connection,$profilequery);
-
 ?>
 
 <profile class="bg-[#F1F1F1] relative overflow-x-hidden">
